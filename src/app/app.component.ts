@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBroom } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faBroom);
 
 @Component({
   selector: 'app-root',
@@ -8,5 +11,4 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'app';
-  faCoffee = faCoffee;
 }
