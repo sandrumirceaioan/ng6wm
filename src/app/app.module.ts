@@ -4,13 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+/* main components */
+import { LoginComponent } from './login/login.component';
+
+
+/* routing module */
+import { AppRoutingModule } from './app.routing';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
