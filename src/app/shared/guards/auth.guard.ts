@@ -3,7 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { UsersService } from '../services/users/users.service';
 import { of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr'
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
