@@ -1,24 +1,39 @@
 <div class="main">
 <div class="container h-100">
   <div class="row align-items-center h-100">
-          <div class="col-lg-4 mx-auto">
+          <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
             <div class="row">
-              <div class="col-md-4">
-                LOGO
+              <div class="logo-container col-xs-12 col-sm-3 col-md-4">
+                <img src="./assets/logowm.png" alt="" title="">
               </div>
-              <div class="col-md-8">
-                  <form>
+              <div class="form-container col-xs-12 col-sm-8 col-md-7">
+                <h3>workmeter <small>2.0</small></h3>
+                  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
                     <div class="form-group">
-                      <label for="username">Email address</label>
-                      <input type="email" class="form-control" id="username" placeholder="Enter email">
+                      <input type="text" 
+                      class="form-control" 
+                      id="username"
+                      name="username"
+                      placeholder="Username"  
+                      [(ngModel)]="user.username"  
+                      #username="ngModel"
+                      [ngClass]="{'invalid': username.invalid && !username.pristine, 'valid': username.valid && username.dirty}"
+                      required>
                     </div>
                     <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password" placeholder="Password">
+                      <input type="password" 
+                      class="form-control" 
+                      id="password"
+                      name="password" 
+                      placeholder="Password" 
+                      [(ngModel)]="user.password" 
+                      #password="ngModel"
+                      [ngClass]="{'invalid': password.invalid && !password.pristine, 'valid': password.valid && password.dirty}"
+                      required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary float-right">Login</button>
                   </form>
-                </div>
+              </div>
             </div>
           </div>
   </div>
