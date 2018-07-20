@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsersService } from '../shared/services/users/users.service';
+import { ToastrService } from '../../../node_modules/ngx-toastr';
 import { User } from '../users/user.model';
 
 @Component({
@@ -8,16 +11,26 @@ import { User } from '../users/user.model';
 })
 export class LoginComponent implements OnInit {
   user = {};
-  
-  constructor() { }
+
+  constructor(
+    private router: Router,
+    private usersService: UsersService,
+    private toastr: ToastrService,
+  ) { }
 
   ngOnInit() {
   }
 
-  onSubmit() { 
-    console.log(this.user);
+  onSubmit(){
+    this.usersService.loginUser(this.user).subscribe(
+      (result: User)=>{
+        this.toastr.success(`welcome, ${result.userName}`);
+        this.router.navigate(['main']);
+      },
+      (error)=>{
+        this.toastr.error(error.error.message);
+      }
+    );
   }
-
-  get diagnostic() { return JSON.stringify(this.user); }
-
+  
 }

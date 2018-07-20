@@ -12,13 +12,14 @@
                     <div class="form-group">
                       <input type="text" 
                       class="form-control" 
-                      id="username"
-                      name="username"
+                      id="userName"
+                      name="userName"
                       placeholder="Username"  
-                      [(ngModel)]="user.username"  
-                      #username="ngModel"
-                      [ngClass]="{'invalid': username.invalid && !username.pristine, 'valid': username.valid && username.dirty}"
-                      required>
+                      [(ngModel)]="user.userName"  
+                      #userName="ngModel"
+                      [ngClass]="{'invalid': userName.invalid && !userName.pristine, 'valid': userName.valid && userName.dirty}"
+                      required
+                      autocomplete="off">
                     </div>
                     <div class="form-group">
                       <input type="password" 
@@ -29,7 +30,8 @@
                       [(ngModel)]="user.password" 
                       #password="ngModel"
                       [ngClass]="{'invalid': password.invalid && !password.pristine, 'valid': password.valid && password.dirty}"
-                      required>
+                      required
+                      autocomplete="off">
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Login</button>
                   </form>

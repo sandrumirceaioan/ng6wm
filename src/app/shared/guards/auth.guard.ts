@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
                 // check if user is logged in
                 return this.usersService.checkLogged().pipe(
                     map(user => {
-                        console.log('AuthGuard: ', user);
                         if (user) return true;
                     }),
                     catchError(error => {
