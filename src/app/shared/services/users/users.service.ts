@@ -24,7 +24,15 @@ checkLogged(){
     return of(this.logged);
   }
   let params = {token: localStorage.getItem('wmtoken')};
-  return this.http.post(this.apiPath + '/checkLogged', params, httpOptions);
+  return this.http.post(this.apiPath + '/checkLogged', params, httpOptions).pipe(
+    map((result: User) => {
+        this.logged = result;
+        return result;
+    }),
+    catchError((error:HttpErrorResponse) => {
+      return throwError(error);
+    })
+  );
 }
 
 loginUser(params): Observable<User>{

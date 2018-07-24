@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '', 
     component: MainComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'dashboard'},
+      { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardModule'}
+    ],
+    pathMatch: 'prefix'
   }
 ];
 

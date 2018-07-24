@@ -11,3 +11,29 @@
     right: 0;
     left: auto;
 }
+
+.nav-link {
+    padding: 17px 10px;
+}
+
+.nav-link span {
+    padding-right: 10px;
+}
+
+.navbar-brand {
+    display: block;
+    float: left;
+    margin-right: 0px;
+}
+
+h3 {
+    float: left;
+    padding-top: 9px;
+}
+
+h3 small {
+    font-size: 13px;
+    color: #ffda01;
+    font-weight: bold;
+}
+

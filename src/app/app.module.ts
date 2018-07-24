@@ -23,7 +23,11 @@ import { AppRoutingModule } from './app.routing';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      preventDuplicates: true,
+      easeTime: 0
+    }),
     FontAwesomeModule,
     AppRoutingModule,
     HttpClientModule

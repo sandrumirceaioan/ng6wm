@@ -1,0 +1,39 @@
+.navigation {
+  color: #ffffff;
+}
+
+.navigation ul li {
+  padding: 0px;
+  margin: 0px;
+}
+
+.navigation ul li a {
+  display: block;
+  color: #ffffff;
+  background: #64698e;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 1px;
+}
+
+.navigation ul li:first-child a {
+  border-left: 0px !important;
+}
+
+
+.navigation ul li a:hover {
+  background:#485173;
+}
+
+@media(max-width:576px){
+
+  .navigation ul li {
+    width:100%;
+  }
+
+  .navigation ul li a {
+    width:100%;
+    border:0px;
+    margin-bottom:1px;
+  }
+}
