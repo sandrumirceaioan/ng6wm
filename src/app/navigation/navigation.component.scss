@@ -2,6 +2,10 @@
   color: #ffffff;
 }
 
+// .navigation ul {
+//   margin:0px;
+// }
+
 .navigation ul li {
   padding: 0px;
   margin: 0px;
@@ -36,4 +40,10 @@
     border:0px;
     margin-bottom:1px;
   }
+}
+
+.active {
+  background: #ffffff !important;
+  color: #64698e!important;
+  font-size: 16px;
 }

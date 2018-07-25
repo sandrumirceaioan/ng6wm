@@ -3,10 +3,32 @@
     color: #000000;
 }
 
-.mycard {
-    height:100px;
+.mycard .mycard-container {
+    background: #cecece;
+    min-height: 100px;
 }
 
-.mycard .mycard-container {
-    background: #bebebe;
+.mycard-container p {
+    display: block;
+    font-size: 25px;
+    padding: 25px 10px 8px 25px;
+}
+
+.mycard-container p span {
+    color: #ffffff;
+    font-weight: bold;
+    font-size:35px;
+}
+
+.dahsboard-icons {
+    display: block;
+    float: right;
+    padding: 13px;
+    margin: 13px;
+    /* background: #ffffff; */
+    color: #ffffff;
+}
+
+h3 {
+    color: #64698e;
 }

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /* main components */
 import { LoginComponent } from './login/login.component';
@@ -28,7 +27,6 @@ import { AppRoutingModule } from './app.routing';
       preventDuplicates: true,
       easeTime: 0
     }),
-    FontAwesomeModule,
     AppRoutingModule,
     HttpClientModule
   ],
