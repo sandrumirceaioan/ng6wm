@@ -1,0 +1,13 @@
+<div class="row no-gutters">
+    <div class="col-lg-3 col-md-5 col-sm-5 content-left">
+      <ul>
+        <li><a (click)="showForm = !showForm" class="add-button"> + add company</a></li>
+        <li *ngFor="let company of companies">
+          <a routerLink="">{{company.companyName}}</a></li>
+      </ul>
+    </div>
+
+    <div class="col-lg-9 col-md-7 col-sm-7 content-right">
+      <router-outlet></router-outlet>
+    </div>
+</div>

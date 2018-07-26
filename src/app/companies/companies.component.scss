@@ -1,0 +1,34 @@
+.content-left {
+    background:#bebebe;
+}
+
+.content-left ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.content-left ul li {
+    border-bottom:1px solid #ffffff;
+}
+
+.content-left ul li a {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    background: #64698e;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.content-left ul li a:hover {
+    background: #ecae08;
+}
+
+.content-right {
+    background: #eaeaea;
+}
+
+.content-left .add-button {
+    background: #ecae08 !important;
+}

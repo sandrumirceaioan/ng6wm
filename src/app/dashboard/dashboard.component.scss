@@ -1,21 +1,22 @@
 .dashboard-container {
-    background:#cf1919;
     color: #000000;
 }
 
 .mycard .mycard-container {
-    background: #cecece;
     min-height: 100px;
+    background: #64698e;
+    // box-shadow: 1px 1px 5px #848484;
+    // border-top: 5px solid #ffffff;
 }
 
 .mycard-container p {
+    color: #ffffff;
     display: block;
     font-size: 25px;
     padding: 25px 10px 8px 25px;
 }
 
 .mycard-container p span {
-    color: #ffffff;
     font-weight: bold;
     font-size:35px;
 }
@@ -29,6 +30,7 @@
     color: #ffffff;
 }
 
-h3 {
-    color: #64698e;
-}
+// .orange {color: #ff8100;}
+// .yellow {color: #ffbc00;}
+// .green {color: #54c300;}
+// .blue {color: #0f489a;}
