@@ -20,9 +20,8 @@
     border-bottom: 1px solid #ffffff;
 }
 
-.form-container button:focus, .form-container button:hover, .form-container button:active {
-    background: none !important;
-    outline: none !important;
+*:focus {
+    outline: none;
 }
 
 .form-container h3 {
@@ -54,10 +53,3 @@
         padding: 0px;
     }
 }
-  
-  .invalid  {
-    border-right: 5px solid #ff0400 !important;
-  }
-  .valid  {
-    border-right: 5px solid #1cb500 !important;
-  } 

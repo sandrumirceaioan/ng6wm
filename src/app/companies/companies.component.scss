@@ -1,5 +1,5 @@
 .content-left {
-    background:#bebebe;
+    background:#eaeaea;
 }
 
 .content-left ul {
@@ -13,6 +13,7 @@
 }
 
 .content-left ul li a {
+    position: relative;
     display: block;
     width: 100%;
     padding: 5px 10px;
@@ -22,13 +23,22 @@
 }
 
 .content-left ul li a:hover {
-    background: #ecae08;
+    background: #143a79;
 }
 
 .content-right {
     background: #eaeaea;
 }
 
-.content-left .add-button {
-    background: #ecae08 !important;
+.active {
+    background: #143a79 !important;
+}
+
+.active-arr {
+    position: absolute;
+    right: 10px;
+}
+
+.add-button {
+    margin-bottom:15px;
 }

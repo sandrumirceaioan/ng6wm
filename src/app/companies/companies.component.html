@@ -1,13 +1,19 @@
 <div class="row no-gutters">
-    <div class="col-lg-3 col-md-5 col-sm-5 content-left">
-      <ul>
-        <li><a (click)="showForm = !showForm" class="add-button"> + add company</a></li>
-        <li *ngFor="let company of companies">
-          <a routerLink="">{{company.companyName}}</a></li>
-      </ul>
-    </div>
+  <div class="col-lg-3 col-md-5 col-sm-5 content-left">
+    <ul>
+      <li>
+        <a class="add-button" routerLink="./add" [routerLinkActive]="'active'" #rla="routerLinkActive">
+          <fa-icon [icon]="['fas', 'building']"></fa-icon><strong> ADD NEW COMPANY</strong>
+          <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
+        </a>
+      </li>
+      <li *ngFor="let company of companies">
+        <a routerLink="company.companyName" [routerLinkActive]="'active'">{{company.companyName}}</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="col-lg-9 col-md-7 col-sm-7 content-right">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="col-lg-9 col-md-7 col-sm-7 content-right">
+    <router-outlet></router-outlet>
+  </div>
 </div>

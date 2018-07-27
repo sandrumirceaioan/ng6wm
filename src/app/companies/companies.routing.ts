@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompaniesComponent } from './companies.component';
+import { AddCompaniesComponent } from '../add-companies/add-companies.component';
 
 const routes: Routes = [
   {
     path: '', 
     component: CompaniesComponent,
-    data: {title: 'Dashboard', access: ['admin']}
+    data: {title: 'Dashboard', access: ['admin']},
+    children: [
+      { path: 'add', component: AddCompaniesComponent }
+    ],
+    pathMatch: 'prefix'
   }
 ];
 

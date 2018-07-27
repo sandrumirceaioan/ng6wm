@@ -15,7 +15,6 @@ export class UsersService {
   apiPath: string = '/api/users';
   logged: User;
   users: User[] = [];
-  mappedResults: object = {};
 
   constructor(private http: HttpClient) { }
 

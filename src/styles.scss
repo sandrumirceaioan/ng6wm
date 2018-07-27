@@ -57,5 +57,12 @@ nav a {
 nav a:hover {
   color: #ffffff;
   text-decoration: none;
-  background: #bebebe;
+  background: #b3b3b3;
 }
+
+.invalid  {
+  border-right: 5px solid #ff0400 !important;
+}
+.valid  {
+  border-right: 5px solid #1cb500 !important;
+} 
