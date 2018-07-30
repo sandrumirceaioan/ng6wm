@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompaniesComponent } from './companies.component';
 import { AddCompaniesComponent } from '../add-companies/add-companies.component';
+import { CompaniesResolve } from './companies.resolve';
 
 const routes: Routes = [
   {
@@ -11,7 +12,10 @@ const routes: Routes = [
     children: [
       { path: 'add', component: AddCompaniesComponent }
     ],
-    pathMatch: 'prefix'
+    pathMatch: 'prefix',
+    resolve: {
+      companies: CompaniesResolve
+    }
   }
 ];
 

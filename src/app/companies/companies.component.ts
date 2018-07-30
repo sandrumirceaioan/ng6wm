@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faChevronRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { map } from '../../../node_modules/rxjs/operators';
+import { Company } from './company.model';
 
 library.add(faPlus, faChevronRight, faBuilding);
 
@@ -12,27 +14,22 @@ library.add(faPlus, faChevronRight, faBuilding);
 })
 export class CompaniesComponent implements OnInit {
 
-  companies = [
-    {companyName:'Conz'},
-    {companyName:'ConzConz'},
-    {companyName:'C7onz2Conz2'},
-    {companyName:'Conz3Con6z2'},
-    {companyName:'Co4nz7'},
-    {companyName:'ConuzConz2Conz2'},
-    {companyName:'Conz123'},
-    {companyName:'Conyz'},
-    {companyName:'CongzConz'},
-    {companyName:'Conz52Conz2'},
-    {companyName:'Cgonz73Conz2'},
-    {companyName:'Conzfy67'},
-    {companyName:'ConzConz2Conz2'},
-    {companyName:'Conzd123'},
-    {companyName:'Consz'}
-  ];
+  companies: Company[];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  
+  ) { }
 
   ngOnInit() {
+    this.activatedRoute.data.pipe(
+      map((result) => {
+        return result.companies;
+      })
+    ).subscribe((result) => {
+        this.companies = result;
+    })
   }
 
 }

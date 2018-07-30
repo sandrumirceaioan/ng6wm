@@ -18,15 +18,13 @@ export class AddCompaniesComponent implements OnInit {
 
   ngOnInit() {
   }
-
   onSubmit(){
-    console.log(this.company);
     this.companiesService.addCompany(this.company).subscribe(
       (result) => {
-        this.toastr.success('company added');
+        this.toastr.success('Company added!');
       },
       (error) => {
-        this.toastr.error('company not added');
+        this.toastr.error(error.error.message);
       }
     );
   }

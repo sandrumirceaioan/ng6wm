@@ -5,6 +5,7 @@ import { CompaniesRoutingModule } from './companies.routing';
 import { AddCompaniesComponent } from '../add-companies/add-companies.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { CompaniesResolve } from './companies.resolve';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule
   ],
-  declarations: [CompaniesComponent, AddCompaniesComponent]
+  declarations: [CompaniesComponent, AddCompaniesComponent],
+  providers: [CompaniesResolve]
 })
 export class CompaniesModule { }

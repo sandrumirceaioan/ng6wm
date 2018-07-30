@@ -32,5 +32,17 @@ export class CompaniesService {
     );
   }
 
+  getAll(): Observable<Company[]> {
+    return this.http.post(this.apiPath + '/all', null, httpOptions).pipe(
+      map((result: Company[]) => {
+          this.companies = result;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
 
-}
+
+} 
