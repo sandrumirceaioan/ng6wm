@@ -3,7 +3,7 @@
     <ul>
       <li>
         <a class="add-button" routerLink="./add" [routerLinkActive]="'active'" #rla="routerLinkActive">
-          <fa-icon [icon]="['fas', 'building']"></fa-icon><strong> ADD NEW COMPANY</strong>
+          <fa-icon [icon]="['fas', 'plus']"></fa-icon><strong> ADD NEW COMPANY</strong>
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>
       </li>

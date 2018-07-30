@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '', 
     component: CompaniesComponent,
-    data: {title: 'Dashboard', access: ['admin']},
+    data: {title: 'Dashboard', access: ['admin','manager','user']},
     children: [
       { path: 'add', component: AddCompaniesComponent }
     ],

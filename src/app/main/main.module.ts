@@ -10,7 +10,7 @@ import { NavigationComponent } from '../navigation/navigation.component';
 @NgModule({
   imports: [
     CommonModule,
-    MainRoutingModule,
+    MainRoutingModule
   ],
   declarations: [MainComponent, HeaderComponent, NavigationComponent],
   providers: [AuthGuard, UserResolve]
