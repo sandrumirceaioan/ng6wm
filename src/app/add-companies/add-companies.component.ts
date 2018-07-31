@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 import { ToastrService } from 'ngx-toastr';
-import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-add-companies',
@@ -9,7 +8,8 @@ import { FileUploader } from 'ng2-file-upload';
   styleUrls: ['./add-companies.component.scss']
 })
 export class AddCompaniesComponent implements OnInit {
-
+  imageUrl: string = '/assets/default-image.png';
+  fileToUpload: File = null;
   company = {};
   selectedFile: File = null;
 
@@ -19,21 +19,30 @@ export class AddCompaniesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
-    //  form.append(this.company);
-    // };
+
    }
 
-   onFileSelected(event) {
-    this.selectedFile = event.target.files[0];
+  handleFileInput(file: FileList) {
+    // seve first selected file
+    this.fileToUpload = file.item(0);
+
+    // show image preview
+    let render = new FileReader();
+    render.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    }
+    render.readAsDataURL(this.fileToUpload);
+
   }
 
-  onSubmit(companyForm){
-    companyForm.append(this.selectedFile);
-    this.companiesService.addCompany(companyForm).subscribe(
+
+
+
+
+  onSubmit(){
+    this.companiesService.addCompany(this.company, this.fileToUpload).subscribe(
       (result) => {
         this.toastr.success('Company added!');
-        companyForm.resetForm();
       },
       (error) => {
         this.toastr.error(error.error.message);

@@ -2,7 +2,7 @@
   <div class="form-header">
     <span>Add New Company</span>
   </div>
-  <form (ngSubmit)="onSubmit(companyForm)" #companyForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="companyName">Company</label>
@@ -13,9 +13,15 @@
         <input type="text" class="form-control" id="companyOwner" placeholder="Company Owner" name="companyOwner" #companyOwner="ngModel" [(ngModel)]="company.companyOwner" [ngClass]="{'invalid': companyOwner.invalid && !companyOwner.pristine}" required>
       </div>
       <div class="form-group col-md-4">
-        <label for="companyLogo">Logo</label>
-        <input type="file" (change)="onFileSelected($event)" name="companyLogo" id="companyLogo" required>
-
+        <div class="row">
+        <div class="col-sm-9">
+          <label for="companyLogo">Logo</label><br />
+          <input type="file" accept="image/*" (change)="handleFileInput($event.target.files)" name="companyLogo" id="companyLogo">
+        </div>
+        <div class="col-sm-3">
+          <img [src]="imageUrl" class="img-thumbnail">
+        </div>
+      </div>
       </div>
     </div>
     <div class="form-group">

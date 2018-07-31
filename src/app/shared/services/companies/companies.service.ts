@@ -20,17 +20,24 @@ export class CompaniesService {
     private http: HttpClient
   ) { }
 
-  addCompany(params): Observable<Company> {
-    return this.http.post(this.apiPath + '/add', params, httpOptions).pipe(
-      map((result: Company) => {
-          this.company = result;
-          this.companies.push(this.company);
-          return result;
-      }),
-      catchError((error:HttpErrorResponse) => {
-        return throwError(error);
-      })
-    );
+  addCompany(params, image: File): Observable<any> {
+    let formData: FormData = new FormData();
+
+    if (image) formData.append('companyLogo', image, image.name);
+    formData.append('companyInfo', params);
+
+    return this.http.post(this.apiPath + '/add', formData);
+    
+    // .pipe(
+    //   map((result: Company) => {
+    //       this.company = result;
+    //       this.companies.push(this.company);
+    //       return result;
+    //   }),
+    //   catchError((error:HttpErrorResponse) => {
+    //     return throwError(error);
+    //   })
+    // );
   }
 
   getAll(): Observable<Company[]> {
