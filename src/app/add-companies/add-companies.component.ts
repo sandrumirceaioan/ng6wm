@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 import { ToastrService } from 'ngx-toastr';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-add-companies',
@@ -10,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AddCompaniesComponent implements OnInit {
 
   company = {};
+  selectedFile: File = null;
 
   constructor(
     private companiesService: CompaniesService,
@@ -17,11 +19,21 @@ export class AddCompaniesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
+    //  form.append(this.company);
+    // };
+   }
+
+   onFileSelected(event) {
+    this.selectedFile = event.target.files[0];
   }
-  onSubmit(){
-    this.companiesService.addCompany(this.company).subscribe(
+
+  onSubmit(companyForm){
+    companyForm.append(this.selectedFile);
+    this.companiesService.addCompany(companyForm).subscribe(
       (result) => {
         this.toastr.success('Company added!');
+        companyForm.resetForm();
       },
       (error) => {
         this.toastr.error(error.error.message);

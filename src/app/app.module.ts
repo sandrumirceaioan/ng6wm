@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app.routing';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot({
+      enableHtml: true,
       timeOut: 4000,
       preventDuplicates: true,
       easeTime: 0

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageComponent } from './manage.component';
+import { RoleGuard } from '../shared/guards/role.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'companies' },
       { path: 'companies', loadChildren: '../companies/companies.module#CompaniesModule'}
     ],
-    pathMatch: 'prefix'
+    pathMatch: 'prefix',
+    canActivate: [RoleGuard]
   }
 ];
 

@@ -6,13 +6,15 @@ import { AddCompaniesComponent } from '../add-companies/add-companies.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { CompaniesResolve } from './companies.resolve';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
     CommonModule,
     CompaniesRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule
   ],
   declarations: [CompaniesComponent, AddCompaniesComponent],
   providers: [CompaniesResolve]

@@ -2,15 +2,20 @@
   <div class="form-header">
     <span>Add New Company</span>
   </div>
-  <form (ngSubmit)="onSubmit(); companyForm.reset()" #companyForm="ngForm">
+  <form (ngSubmit)="onSubmit(companyForm)" #companyForm="ngForm">
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <label for="companyName">Company</label>
         <input type="text" class="form-control" id="companyName" placeholder="Company Name" name="companyName" #companyName="ngModel" [(ngModel)]="company.companyName" [ngClass]="{'invalid': companyName.invalid && !companyName.pristine}" required>
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <label for="companyOwner">Owner</label>
         <input type="text" class="form-control" id="companyOwner" placeholder="Company Owner" name="companyOwner" #companyOwner="ngModel" [(ngModel)]="company.companyOwner" [ngClass]="{'invalid': companyOwner.invalid && !companyOwner.pristine}" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="companyLogo">Logo</label>
+        <input type="file" (change)="onFileSelected($event)" name="companyLogo" id="companyLogo" required>
+
       </div>
     </div>
     <div class="form-group">
@@ -33,4 +38,6 @@
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!companyForm.valid">SAVE COMPANY</button>
   </form>
+
 </div>
+

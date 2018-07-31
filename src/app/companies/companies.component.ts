@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faChevronRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { map } from '../../../node_modules/rxjs/operators';
 import { Company } from './company.model';
+import { CompaniesService } from '../shared/services/companies/companies.service';
 
 library.add(faPlus, faChevronRight, faBuilding);
 
@@ -18,18 +19,20 @@ export class CompaniesComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private companiesService: CompaniesService
   
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.data.pipe(
-      map((result) => {
-        return result.companies;
-      })
-    ).subscribe((result) => {
-        this.companies = result;
-    })
+    this.companies = this.companiesService.companies;
+    // this.activatedRoute.data.pipe(
+    //   map((result) => {
+    //     return result.companies;
+    //   })
+    // ).subscribe((result) => {
+    //     this.companies = result;
+    // })
   }
 
 }

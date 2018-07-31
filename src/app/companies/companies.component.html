@@ -7,6 +7,7 @@
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>
       </li>
+      <li *ngIf="companies.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
       <li *ngFor="let company of companies">
         <a routerLink="company.companyName" [routerLinkActive]="'active'">{{company.companyName}}</a>
       </li>

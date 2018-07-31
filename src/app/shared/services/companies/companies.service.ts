@@ -24,6 +24,7 @@ export class CompaniesService {
     return this.http.post(this.apiPath + '/add', params, httpOptions).pipe(
       map((result: Company) => {
           this.company = result;
+          this.companies.push(this.company);
           return result;
       }),
       catchError((error:HttpErrorResponse) => {
