@@ -20,24 +20,17 @@ export class CompaniesService {
     private http: HttpClient
   ) { }
 
-  addCompany(params, image: File): Observable<any> {
-    let formData: FormData = new FormData();
-
-    if (image) formData.append('companyLogo', image, image.name);
-    formData.append('companyInfo', params);
-
-    return this.http.post(this.apiPath + '/add', formData);
-    
-    // .pipe(
-    //   map((result: Company) => {
-    //       this.company = result;
-    //       this.companies.push(this.company);
-    //       return result;
-    //   }),
-    //   catchError((error:HttpErrorResponse) => {
-    //     return throwError(error);
-    //   })
-    // );
+  addCompany(params): Observable<any> {
+    return this.http.post(this.apiPath + '/add', params, httpOptions).pipe(
+      map((result: Company) => {
+          this.company = result;
+          this.companies.push(this.company);
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
   }
 
   getAll(): Observable<Company[]> {
@@ -54,3 +47,13 @@ export class CompaniesService {
 
 
 } 
+
+
+// let formData: FormData = new FormData();
+// if (image) formData.append('companyLogo', image, image.name);
+// formData.append('companyName', params.companyName);
+// formData.append('companyOwner', params.companyOwner);
+// formData.append('companyDescription', params.companyDescription);
+// formData.append('companyAddress', params.companyAddress);
+// formData.append('companyPhone', params.companyPhone);
+// formData.append('companyEmail', params.companyEmail);

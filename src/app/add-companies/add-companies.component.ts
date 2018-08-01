@@ -22,32 +22,30 @@ export class AddCompaniesComponent implements OnInit {
 
    }
 
-  handleFileInput(file: FileList) {
-    // seve first selected file
-    this.fileToUpload = file.item(0);
-
-    // show image preview
-    let render = new FileReader();
-    render.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    }
-    render.readAsDataURL(this.fileToUpload);
-
-  }
-
-
-
-
-
   onSubmit(){
-    this.companiesService.addCompany(this.company, this.fileToUpload).subscribe(
+    this.companiesService.addCompany(this.company).subscribe(
       (result) => {
         this.toastr.success('Company added!');
       },
       (error) => {
+        console.log('err: ', error);
         this.toastr.error(error.error.message);
       }
     );
   }
 
 }
+
+
+  // handleFileInput(file: FileList) {
+  //   // seve first selected file
+  //   this.fileToUpload = file.item(0);
+
+  //   // show image preview
+  //   let render = new FileReader();
+  //   render.onload = (event: any) => {
+  //     this.imageUrl = event.target.result;
+  //   }
+  //   render.readAsDataURL(this.fileToUpload);
+
+  // }

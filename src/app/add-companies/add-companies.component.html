@@ -4,15 +4,15 @@
   </div>
   <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
     <div class="form-row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
         <label for="companyName">Company</label>
         <input type="text" class="form-control" id="companyName" placeholder="Company Name" name="companyName" #companyName="ngModel" [(ngModel)]="company.companyName" [ngClass]="{'invalid': companyName.invalid && !companyName.pristine}" required>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
         <label for="companyOwner">Owner</label>
         <input type="text" class="form-control" id="companyOwner" placeholder="Company Owner" name="companyOwner" #companyOwner="ngModel" [(ngModel)]="company.companyOwner" [ngClass]="{'invalid': companyOwner.invalid && !companyOwner.pristine}" required>
       </div>
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
         <div class="row">
         <div class="col-sm-9">
           <label for="companyLogo">Logo</label><br />
@@ -22,7 +22,7 @@
           <img [src]="imageUrl" class="img-thumbnail">
         </div>
       </div>
-      </div>
+      </div> -->
     </div>
     <div class="form-group">
       <label for="companyDescription">Description</label>
