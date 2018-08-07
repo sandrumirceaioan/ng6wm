@@ -9,7 +9,7 @@ export class UserResolve implements Resolve<any>{
     private usersService: UsersService  
   ){ }
 
-  resolve(){ 
+  resolve(){
     return this.usersService.logged;
   }
 

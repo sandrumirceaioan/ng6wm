@@ -2,14 +2,14 @@
   <div class="col-lg-3 col-md-5 col-sm-5 content-left">
     <ul>
       <li>
-        <a class="add-button" routerLink="./add" [routerLinkActive]="'active'" #rla="routerLinkActive">
+        <a class="add-button" routerLink="add" [routerLinkActive]="'active'" #rla="routerLinkActive">
           <fa-icon [icon]="['fas', 'plus']"></fa-icon><strong> ADD NEW COMPANY</strong>
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>
       </li>
       <li *ngIf="companies.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
       <li *ngFor="let company of companies">
-        <a [routerLink]="['./id', company._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
+        <a [routerLink]="['id', company._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
           {{company.companyName}}
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>

@@ -7,9 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: CompanyComponent,
-    data: { title: 'Company', access: ['admin', 'manager', 'user'] },
     resolve: {
-      projects: CompanyResolve,
+      company: CompanyResolve,
     }
   }
 ];

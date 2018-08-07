@@ -12,7 +12,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'companies' },
       { path: 'companies', loadChildren: '../companies/companies.module#CompaniesModule'}
     ],
-    pathMatch: 'prefix',
     canActivate: [RoleGuard]
   }
 ];
