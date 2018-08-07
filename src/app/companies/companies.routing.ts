@@ -10,7 +10,11 @@ const routes: Routes = [
     component: CompaniesComponent,
     data: {title: 'Dashboard', access: ['admin','manager','user']},
     children: [
-      { path: 'add', component: AddCompaniesComponent }
+      { path: 'add', component: AddCompaniesComponent },
+      { path: 'id/:id',
+       loadChildren: '../company/company.module#CompanyModule',
+       data: {title: 'Edit Company', access: ['admin', 'manager']},
+      }
     ],
     pathMatch: 'prefix',
     resolve: {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Company } from '../../../companies/company.model';
+import { Company } from '../../../company/company.model';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { of, throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -45,8 +45,21 @@ export class CompaniesService {
     );
   }
 
+  getOneById(params): Observable<Company> {
+    return this.http.post(this.apiPath + '/oneById', params, httpOptions).pipe(
+      map((result: Company) => {
+          this.company = result;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
 
-} 
+  }
+
+
 
 
 // let formData: FormData = new FormData();

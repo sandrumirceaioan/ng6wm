@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 /* main components */
 import { LoginComponent } from './login/login.component';
+import { Page404Component } from './page404/page404.component';
 
 /* routing module */
 import { AppRoutingModule } from './app.routing';
@@ -17,7 +18,8 @@ import { AppRoutingModule } from './app.routing';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

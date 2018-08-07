@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faChevronRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { map } from '../../../node_modules/rxjs/operators';
-import { Company } from './company.model';
+import { map } from 'rxjs/operators';
+import { Company } from '../company/company.model';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 
 library.add(faPlus, faChevronRight, faBuilding);

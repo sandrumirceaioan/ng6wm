@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { CompaniesService } from '../shared/services/companies/companies.service';
-import { ToastrService } from '../../../node_modules/ngx-toastr';
-import { catchError } from '../../../node_modules/rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CompaniesResolve implements Resolve<any>{
