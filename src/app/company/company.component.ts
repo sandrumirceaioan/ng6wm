@@ -38,7 +38,7 @@ export class CompanyComponent implements OnInit {
   uploadImage(){
     if(this.fileList && this.fileList.length > 0) {
       this.file = this.fileList[0];
-      this.companiesService.uploadLogo(this.file).subscribe(
+      this.companiesService.uploadLogo(this.file, this.company).subscribe(
         (result)=>{
           this.toastr.success('logo updated');
         },

@@ -57,11 +57,15 @@ export class CompaniesService {
     );
   }
 
-  uploadLogo(file): Observable<any> {
+  uploadLogo(file, company): Observable<any> {
         let formData:FormData = new FormData();
         formData.append('companyLogo', file, file.name);
+        formData.append('_id', company._id);
         return this.http.post(this.apiPath + '/upload', formData)
         .pipe(
+          map((result: Company) => {
+            this.company = result;
+          }),
           catchError((error:HttpErrorResponse) => {
             return throwError(error);
           })
