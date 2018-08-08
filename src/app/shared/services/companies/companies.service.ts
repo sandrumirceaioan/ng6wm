@@ -57,16 +57,15 @@ export class CompaniesService {
     );
   }
 
+  uploadLogo(file): Observable<any> {
+        let formData:FormData = new FormData();
+        formData.append('companyLogo', file, file.name);
+        return this.http.post(this.apiPath + '/upload', formData)
+        .pipe(
+          catchError((error:HttpErrorResponse) => {
+            return throwError(error);
+          })
+        );
   }
 
-
-
-
-// let formData: FormData = new FormData();
-// if (image) formData.append('companyLogo', image, image.name);
-// formData.append('companyName', params.companyName);
-// formData.append('companyOwner', params.companyOwner);
-// formData.append('companyDescription', params.companyDescription);
-// formData.append('companyAddress', params.companyAddress);
-// formData.append('companyPhone', params.companyPhone);
-// formData.append('companyEmail', params.companyEmail);
+}

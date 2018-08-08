@@ -1,1 +1,74 @@
-{{company | json}}
+<div class="form-container">
+    <div class="form-header">
+        <span>{{company.companyName}}</span>
+        <button type="button" class="d-block btn-edit float-right" (click)="edit = !edit">
+            <span *ngIf="!edit">Edit info</span>
+            <span *ngIf="edit">View info</span>
+        </button>
+        <div class="clearfix"></div>
+    </div>
+    <div class="row company-details" *ngIf="!edit">
+    <div class="col-md-8">
+        <p class="heading-title">Description</p>
+        <div class="media">
+            <div class="media-left">
+                <img class="m-2 float-left" [src]="'../assets/' + company.companyLogo" alt="">
+                <div class="media-body">
+                        {{company.companyDescription}}
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <p class="heading-title">Contact</p>
+        <ul>
+            <li><small><strong>Owner</strong></small> - {{company.companyOwner}}</li>
+            <li><small><strong>Address</strong></small> - {{company.companyAddress}}</li>
+            <li><small><strong>Phone</strong></small> - {{company.companyPhone}}</li>
+            <li><small><strong>Email</strong></small> - {{company.companyEmail}}</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <p class="heading-title">Upload New Logo</p>
+        <div class="row">
+                <div class="col-sm-12">
+                  <input type="file" accept="image/*" (change)="handleFileInput($event)" name="companyLogo" id="companyLogo">
+                  <button type="button" (click)="uploadImage()">Upload</button>
+                </div>
+        </div>
+    </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" #companyForm="ngForm" *ngIf="edit">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="companyName">Company</label>
+          <input type="text" class="form-control" id="companyName" placeholder="Company Name" name="companyName" #companyName="ngModel" [(ngModel)]="company.companyName" [ngClass]="{'invalid': companyName.invalid && !companyName.pristine}" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="companyOwner">Owner</label>
+          <input type="text" class="form-control" id="companyOwner" placeholder="Company Owner" name="companyOwner" #companyOwner="ngModel" [(ngModel)]="company.companyOwner" [ngClass]="{'invalid': companyOwner.invalid && !companyOwner.pristine}" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="companyDescription">Description</label>
+        <textarea class="form-control" id="companyDescription" rows="3" placeholder="Company Description" name="companyDescription" #companyDescription="ngModel" [(ngModel)]="company.companyDescription" [ngClass]="{'invalid': companyDescription.invalid && !companyDescription.pristine}" required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="companyAddress">Address</label>
+          <input type="text" class="form-control" id="companyAddress" placeholder="Company Address" name="companyAddress" #companyAddress="ngModel" [(ngModel)]="company.companyAddress" [ngClass]="{'invalid': companyAddress.invalid && !companyAddress.pristine}" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="companyPhone">Phone</label>
+          <input type="text" class="form-control" id="companyPhone" placeholder="Company Phone" name="companyPhone" #companyPhone="ngModel" [(ngModel)]="company.companyPhone" [ngClass]="{'invalid': companyPhone.invalid && !companyPhone.pristine}" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="companyEmail">Email</label>
+          <input type="text" email="true" class="form-control" id="companyEmail" placeholder="Company Email" name="companyEmail" #companyEmail="ngModel" [(ngModel)]="company.companyEmail" [ngClass]="{'invalid': companyEmail.invalid && !companyEmail.pristine}" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary submit" [disabled]="!companyForm.valid">SAVE COMPANY</button>
+    </form>
+</div>
+  
+  

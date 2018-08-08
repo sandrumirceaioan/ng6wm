@@ -5,6 +5,7 @@ export class Company {
   companyAddress: string;
   companyPhone: number;
   companyEmail: string;
+  companyLogo: string;
   created?: Date;
   createdBy?: string;
 }
