@@ -17,7 +17,7 @@
                       placeholder="Username"  
                       [(ngModel)]="user.userName"  
                       #userName="ngModel"
-                      [ngClass]="{'invalid': userName.invalid && !userName.pristine, 'valid': userName.valid && userName.dirty}"
+                      [ngClass]="{'invalid': userName.invalid && !userName.pristine}"
                       required
                       autocomplete="off">
                     </div>
@@ -29,7 +29,7 @@
                       placeholder="Password" 
                       [(ngModel)]="user.password" 
                       #password="ngModel"
-                      [ngClass]="{'invalid': password.invalid && !password.pristine, 'valid': password.valid && password.dirty}"
+                      [ngClass]="{'invalid': password.invalid && !password.pristine}"
                       required
                       autocomplete="off">
                     </div>

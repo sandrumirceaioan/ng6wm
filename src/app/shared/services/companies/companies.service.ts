@@ -65,6 +65,7 @@ export class CompaniesService {
         .pipe(
           map((result: Company) => {
             this.company = result;
+            return result;
           }),
           catchError((error:HttpErrorResponse) => {
             return throwError(error);

@@ -41,6 +41,7 @@ export class CompanyComponent implements OnInit {
       this.companiesService.uploadLogo(this.file, this.company).subscribe(
         (result)=>{
           this.toastr.success('logo updated');
+          this.company = result;
         },
         (error)=>{
           this.toastr.error(error.error.message);
