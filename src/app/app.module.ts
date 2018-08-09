@@ -29,7 +29,8 @@ import { AppRoutingModule } from './app.routing';
       enableHtml: true,
       timeOut: 4000,
       preventDuplicates: true,
-      easeTime: 0
+      easeTime: 0,
+      positionClass: 'toast-top-right'
     }),
     AppRoutingModule,
     HttpClientModule

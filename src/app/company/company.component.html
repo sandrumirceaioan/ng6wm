@@ -1,9 +1,9 @@
-<div class="form-container">
+<div class="inner-container">
     <div class="form-header">
         <span>{{company.companyName}}</span>
         <button type="button" class="d-block btn-edit float-right" (click)="edit = !edit">
-            <span *ngIf="!edit">Edit info</span>
-            <span *ngIf="edit">View info</span>
+            <span *ngIf="!edit"><fa-icon [icon]="['fas', 'edit']"></fa-icon> edit</span>
+            <span *ngIf="edit"><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
         </button>
         <div class="clearfix"></div>
     </div>
@@ -12,7 +12,8 @@
         <p class="heading-title">Description</p>
         <div class="media">
             <div class="media-left">
-                <img class="m-2 float-left" [src]="'http://localhost:3000/' + company.companyLogo || '../assets/default-image.png'" alt="">
+                <img *ngIf="company.companyLogo != 'default-image.png'" class="m-2 float-left" [src]="'http://localhost:3000/' + company.companyLogo" alt="">
+                <img *ngIf="company.companyLogo == 'default-image.png'" class="m-2 float-left" [src]="'../assets/default-image.png'" alt="">
                 <div class="media-body">
                         {{company.companyDescription}}
                 </div>
@@ -29,16 +30,16 @@
         </ul>
     </div>
     <div class="col-md-4">
-        <p class="heading-title">Upload New Logo</p>
+        <p class="heading-title">Logo</p>
         <div class="row">
                 <div class="col-sm-12">
-                  <input type="file" accept="image/*" (change)="handleFileInput($event)" name="companyLogo" id="companyLogo">
-                  <button type="button" class="btn-upload" (click)="uploadImage()">Upload</button>
+                  <input type="file" accept="image/*" (change)="handleFileInput($event)" name="companyLogo" id="companyLogo" class="upload-select">
+                  <button type="button" class="btn-upload" (click)="uploadImage()"><fa-icon [icon]="['fas', 'upload']"></fa-icon> upload</button>
                 </div>
         </div>
     </div>
     </div>
-    <form (ngSubmit)="onSubmit()" #companyForm="ngForm" *ngIf="edit">
+    <form (ngSubmit)="onSubmit()" #updateCompanyForm="ngForm" *ngIf="edit">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="companyName">Company</label>
@@ -67,7 +68,7 @@
           <input type="text" email="true" class="form-control" id="companyEmail" placeholder="Company Email" name="companyEmail" #companyEmail="ngModel" [(ngModel)]="company.companyEmail" [ngClass]="{'invalid': companyEmail.invalid && !companyEmail.pristine}" required>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary submit" [disabled]="!companyForm.valid">SAVE COMPANY</button>
+      <button type="submit" class="btn btn-primary submit" [disabled]="!updateCompanyForm.valid">SAVE COMPANY</button>
     </form>
 </div>
   

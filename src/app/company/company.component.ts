@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Company } from './company.model';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faEdit, faChevronLeft, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 import { ToastrService } from '../../../node_modules/ngx-toastr';
 
-library.add(faPlus, faMinus);
+library.add(faPlus, faMinus, faEdit, faChevronLeft, faUpload);
 
 @Component({
   selector: 'app-company',
@@ -31,6 +31,19 @@ export class CompanyComponent implements OnInit {
     });
   }
 
+  onSubmit(): Company {
+    this.companiesService.updateOne(this.company).subscribe(
+      (result) => {
+        this.toastr.success('company updated');
+        this.company = result;
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
+      }
+    )
+    return;
+  }
+
   handleFileInput(event) {
     this.fileList = event.target.files;
   }
@@ -47,6 +60,8 @@ export class CompanyComponent implements OnInit {
           this.toastr.error(error.error.message);
         }
       );
+    } else {
+      this.toastr.error('no image selected');
     }
   }
 

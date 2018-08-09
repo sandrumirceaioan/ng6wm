@@ -66,3 +66,45 @@ nav a:hover {
 .valid  {
   border-right: 5px solid #1cb500 !important;
 } 
+
+.inner-container {
+  padding:15px;
+  border-left:1px solid #cccccc;
+}
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b8b8b8;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #b8b8b8;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #b8b8b8;
+}
+
+.inner-container input, .inner-container textarea {
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  padding: 15px 10px;
+  outline: none;
+  background: #f1f1f1;
+  -moz-box-shadow:    inset 0 0 5px #c0c0c0;
+  -webkit-box-shadow: inset 0 0 5px #c0c0c0;
+  box-shadow:         inset 0 0 5px #c0c0c0;
+}
+
+.inner-container input:active, .inner-container input:focus, .inner-container textarea:active, .inner-container textarea:focus {
+    outline: none;
+    background: #f1f1f1;
+}
+
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

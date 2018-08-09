@@ -57,12 +57,11 @@ export class CompaniesService {
     );
   }
 
-  uploadLogo(file, company): Observable<any> {
+  uploadLogo(file, company): Observable<Company> {
         let formData:FormData = new FormData();
         formData.append('companyLogo', file, file.name);
         formData.append('_id', company._id);
-        return this.http.post(this.apiPath + '/upload', formData)
-        .pipe(
+        return this.http.post(this.apiPath + '/upload', formData).pipe(
           map((result: Company) => {
             this.company = result;
             return result;
@@ -71,6 +70,18 @@ export class CompaniesService {
             return throwError(error);
           })
         );
+  }
+
+  updateOne(params): Observable<Company> {
+    return this.http.post(this.apiPath + '/update', params, httpOptions).pipe(
+      map((result: Company) => {
+        this.company = result;
+        return result;
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
   }
 
 }
