@@ -1,0 +1,26 @@
+<div class="row no-gutters">
+    <div class="col-lg-3 col-md-5 col-sm-5 content-left">
+      <ul>
+        <li>
+          <a class="add-button" routerLink="add" [routerLinkActive]="'active'" #rla="routerLinkActive">
+            <fa-icon [icon]="['fas', 'plus']"></fa-icon><strong> ADD NEW PROJECT</strong>
+            <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
+          </a>
+        </li>
+        <li>
+            <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search...">
+        </li>
+        <li *ngIf="projects.length == 0"><a class="add-button" routerlink>No projects yet.</a></li>
+        <li *ngFor="let project of projects | listFilter:searchTerm">
+          <a [routerLink]="['id', project.projectName]" [routerLinkActive]="'active'" #rla="routerLinkActive">
+            {{project.projectName}}
+            <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col-lg-9 col-md-7 col-sm-7 content-right">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

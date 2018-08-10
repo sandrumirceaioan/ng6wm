@@ -12,8 +12,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard'},
       { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardModule'},
       { path: 'manage', loadChildren: '../manage/manage.module#ManageModule'}
-    ],
-    pathMatch: 'prefix'
+    ]
   }
 ];
 

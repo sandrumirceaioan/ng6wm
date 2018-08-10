@@ -2,30 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faChevronRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { Company } from '../company/company.model';
-import { CompaniesService } from '../shared/services/companies/companies.service';
+import { Project } from '../project/project.model';
+import { ProjectsService } from '../shared/services/projects/projects.service';
 
 library.add(faPlus, faChevronRight, faBuilding);
 
 @Component({
-  selector: 'app-companies',
-  templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss']
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.scss']
 })
-export class CompaniesComponent implements OnInit {
-  
-  companies: Company[];
+export class ProjectsComponent implements OnInit {
   searchTerm: string;
+  projects: Project[];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private companiesService: CompaniesService
-  
+    private projectsService: ProjectsService
   ) { }
 
   ngOnInit() {
-    this.companies = this.companiesService.companies;
+    this.projects = this.projectsService.projects;
   }
 
   onSearchChange(e){

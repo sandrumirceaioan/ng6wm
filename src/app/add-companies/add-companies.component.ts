@@ -9,9 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddCompaniesComponent implements OnInit {
   imageUrl: string = '/assets/default-image.png';
-  fileToUpload: File = null;
   company = {};
-  selectedFile: File = null;
 
   constructor(
     private companiesService: CompaniesService,
@@ -33,20 +31,4 @@ export class AddCompaniesComponent implements OnInit {
       }
     );
   }
-  
-
 }
-
-
-  // handleFileInput(file: FileList) {
-  //   // seve first selected file
-  //   this.fileToUpload = file.item(0);
-
-  //   // show image preview
-  //   let render = new FileReader();
-  //   render.onload = (event: any) => {
-  //     this.imageUrl = event.target.result;
-  //   }
-  //   render.readAsDataURL(this.fileToUpload);
-
-  // }

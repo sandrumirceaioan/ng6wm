@@ -1,0 +1,25 @@
+.form-header {
+    padding: 0px 0 10px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #64698e;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 15px;
+  }
+  
+  .inner-container button {
+    border: none;
+    border-radius: 0px;
+    padding: 10px 20px;
+    background: #ffaa00;
+    font-weight: bold;
+  }
+  .inner-container label {
+    color: #64698e;
+    font-weight: bold;
+  }
+
+  .upload-select {
+    height: 54px;
+  }

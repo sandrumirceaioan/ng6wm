@@ -15,7 +15,8 @@ const routes: Routes = [
     ],
     resolve: {
       companies: CompaniesResolve
-    }
+    },
+    pathMatch: 'prefix'
   }
 ];
 

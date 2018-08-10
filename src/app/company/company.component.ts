@@ -15,7 +15,7 @@ library.add(faPlus, faMinus, faEdit, faChevronLeft, faUpload);
 })
 export class CompanyComponent implements OnInit {
   company: Company;
-  edit: false;
+  edit: boolean = false;
   file: File;
   fileList: FileList;
 
