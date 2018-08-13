@@ -30,7 +30,7 @@ export class AddProjectsComponent implements OnInit {
     if(this.fileList && this.fileList.length > 0) {
       this.file = this.fileList[0];
     }
-    this.projectsService.addProject(this.file, this.project).subscribe(
+    this.projectsService.addProject(this.project).subscribe(
       (result) => {
         this.toastr.success('company added');
       },

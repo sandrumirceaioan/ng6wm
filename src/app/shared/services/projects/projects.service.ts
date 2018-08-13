@@ -21,16 +21,8 @@ export class ProjectsService {
     private http: HttpClient
   ) { }
 
-  addProject(file, project): Observable<Project>{
-
-    let formData:FormData = new FormData();
-    if (file) formData.append('projectLogo', file, file.name);
-    formData.append('projectName', project.projectName);
-    formData.append('projectCompany', project.projectCompany);
-    formData.append('projectDescription', project.projectDescription);
-    formData.append('projectTags', project.projectTags);
-
-    return this.http.post(this.apiPath + '/add', formData).pipe(
+  addProject(project): Observable<Project>{
+    return this.http.post(this.apiPath + '/add', project, httpOptions).pipe(
       map((result: Project) => {
         this.projects.unshift(result);
         return result;
