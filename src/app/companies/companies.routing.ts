@@ -11,7 +11,7 @@ const routes: Routes = [
     data: {title: 'Dashboard', access: ['admin','manager','user']},
     children: [
       { path: 'add', component: AddCompaniesComponent },
-      { path: 'id/:id', loadChildren: '../company/company.module#CompanyModule' }
+      { path: ':id', loadChildren: '../company/company.module#CompanyModule' }
     ],
     resolve: {
       companies: CompaniesResolve

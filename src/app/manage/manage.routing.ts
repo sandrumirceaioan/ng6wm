@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ManageComponent,
     data: {title: 'Manage', access: ['admin','manager']},
     children: [
-      { path: '', redirectTo: 'companies'},
+      { path: '', redirectTo: 'companies', pathMatch: 'full'},
       { path: 'companies', loadChildren: '../companies/companies.module#CompaniesModule'},
       { path: 'projects', loadChildren: '../projects/projects.module#ProjectsModule'}
     ],

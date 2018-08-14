@@ -24,13 +24,7 @@ export class ProjectComponent implements OnInit {
     private projectsService: ProjectsService,
     private toastr: ToastrService,
     private router: Router
-  ) { 
-    // dirty fix to reinit the component on parametrised route
-    this.router.routeReuseStrategy.shouldReuseRoute = function(){
-      return false;
-   }
-
-  }
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((result) => {
@@ -38,17 +32,17 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  onSubmit(): Project {
-    this.projectsService.updateOne(this.project).subscribe(
-      (result) => {
-        this.toastr.success('company updated');
-        this.project = result;
-      },
-      (error) => {
-        this.toastr.error(error.error.message);
-      }
-    )
-    return;
+  onSubmit() {
+    console.log(this.project);
+    // this.projectsService.updateOne(this.project).subscribe(
+    //   (result) => {
+    //     this.toastr.success('company updated');
+    //     this.project = result;
+    //   },
+    //   (error) => {
+    //     this.toastr.error(error.error.message);
+    //   }
+    // )
   }
 
   handleFileInput(event) {

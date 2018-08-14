@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Resolve, ActivatedRouteSnapshot, Router } from "@angular/router";
 import { of } from "rxjs";
 import { catchError } from 'rxjs/operators';
-import { ToastrService } from "../../../node_modules/ngx-toastr";
+import { ToastrService } from "ngx-toastr";
 import { ProjectsService } from "../shared/services/projects/projects.service";
 
 @Injectable()

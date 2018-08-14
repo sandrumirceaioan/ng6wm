@@ -8,10 +8,10 @@ const routes : Routes = [
     {
         path: '', 
         component: ProjectsComponent,
-        data: { title: 'Projects', access: ['admin'] },
+        data: { title: 'Projects', access: ['admin', 'manager'] },
         children: [
             { path: 'add', component: AddProjectsComponent },
-            { path: 'id/:id', loadChildren: '../project/project.module#ProjectModule' }
+            { path: ':id', loadChildren: '../project/project.module#ProjectModule' }
         ],
         resolve: {
             projects: ProjectsResolve
@@ -19,7 +19,6 @@ const routes : Routes = [
         pathMatch: 'prefix'
     }
 ];
-
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

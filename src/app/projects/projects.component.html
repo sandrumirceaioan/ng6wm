@@ -12,7 +12,7 @@
         </li>
         <li *ngIf="projects.length == 0"><a class="add-button" routerlink>No projects yet.</a></li>
         <li *ngFor="let project of projects | listFilter:searchTerm">
-          <a [routerLink]="['id', project._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
+          <a [routerLink]="['./', project._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
             {{project.projectName}}
             <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
           </a>

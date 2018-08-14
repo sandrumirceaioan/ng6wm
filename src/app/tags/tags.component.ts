@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'tags',
@@ -15,6 +15,13 @@ export class TagsComponent implements OnInit {
 
   ngOnInit() {
     this.tags = this.ptags || [];
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // only run when property "data" changed
+    if (changes['ptags']) {
+        this.tags = this.ptags;
+    }
   }
 
   pushTag(tag) {

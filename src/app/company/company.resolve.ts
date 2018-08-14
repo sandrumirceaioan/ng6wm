@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, Router } from "@angular/router";
 import { of } from "rxjs";
 import { catchError } from 'rxjs/operators';
 import { CompaniesService } from '../shared/services/companies/companies.service';
-import { ToastrService } from "../../../node_modules/ngx-toastr";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable()
 export class CompanyResolve implements Resolve<any>{

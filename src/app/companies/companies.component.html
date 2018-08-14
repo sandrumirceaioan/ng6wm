@@ -8,11 +8,11 @@
         </a>
       </li>
       <li>
-          <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search...">
+          <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search companies...">
       </li>
       <li *ngIf="companies.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
       <li *ngFor="let company of companies | listFilter:searchTerm">
-        <a [routerLink]="['id', company._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
+        <a [routerLink]="['./', company._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
           {{company.companyName}}
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>
