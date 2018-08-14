@@ -19,9 +19,11 @@ export class ListsFilterPipe implements PipeTransform {
 
     objectContains(obj, term: string) {
         for (let key in obj) {
-            let value: string = obj[key].toString();
-            if (value.toLowerCase().indexOf(term) > -1) {
-                return true;
+            if (key.toLowerCase().indexOf('name') > -1) {
+                let value: string = obj[key].toString();
+                if (value.toLowerCase().indexOf(term) > -1) {
+                    return true;
+                }
             }
         }
         return false;

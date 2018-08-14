@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { AddProjectsComponent } from '../add-projects/add-projects.component';
 import { CompaniesModule } from '../companies/companies.module';
 import { ListsFilterModule } from '../shared/modules/search.module';
-import { TagsComponent } from '../tags/tags.component';
+import { ProjectsResolve } from './projects.resolve';
+import { TagsModule } from '../tags/tags.module';
+
 
 @NgModule({
   imports: [
@@ -17,9 +19,10 @@ import { TagsComponent } from '../tags/tags.component';
     FontAwesomeModule,
     FormsModule,
     CompaniesModule,
-    ListsFilterModule
+    ListsFilterModule,
+    TagsModule
   ],
-  declarations: [ProjectsComponent, AddProjectsComponent, TagsComponent],
-  providers: [ProjectsService]
+  declarations: [ProjectsComponent, AddProjectsComponent],
+  providers: [ProjectsService, ProjectsResolve]
 })
 export class ProjectsModule { }

@@ -1,3 +1,68 @@
-<p>
-  project works!
-</p>
+<div class="inner-container">
+  <div class="form-header">
+      <span>{{project.projectName}}</span>
+      <button type="button" class="d-block btn-edit float-right" (click)="edit = !edit">
+          <span *ngIf="!edit"><fa-icon [icon]="['fas', 'edit']"></fa-icon> edit</span>
+          <span *ngIf="edit"><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
+      </button>
+      <div class="clearfix"></div>
+  </div>
+  <div class="row project-details" *ngIf="!edit">
+  <div class="col-md-8 left">
+      <p class="heading-title">Description</p>
+      <div class="media">
+          <div class="media-left">
+              <img *ngIf="project.projectLogo != 'default-image.png'" class="m-2 float-left" [src]="'http://localhost:3000/' + project.projectLogo" alt="">
+              <img *ngIf="project.projectLogo == 'default-image.png'" class="m-2 float-left" [src]="'../assets/default-image.png'" alt="">
+              <div class="media-body" [innerHTML]="project.projectDescription"></div>
+          </div>
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+  <div class="col-md-4">
+      <p class="heading-title">Tags</p>
+      blabla
+      <hr>
+      <div class="row">
+              <div class="col-sm-12">
+                <input type="file" accept="image/*" (change)="handleFileInput($event)" name="projectLogo" id="projectLogo" class="upload-select">
+                <button type="button" class="btn-upload" (click)="uploadImage()"><fa-icon [icon]="['fas', 'upload']"></fa-icon> upload logo</button>
+              </div>
+      </div>
+  </div>
+  </div>
+  <form (ngSubmit)="onSubmit()" #updateProjectForm="ngForm" (keydown.enter)="$event.preventDefault()" *ngIf="edit">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="projectName">Project</label>
+        <input type="text" class="form-control" id="projectName" placeholder="Project Name" name="projectName" #projectName="ngModel" [(ngModel)]="project.projectName" [ngClass]="{'invalid': projectName.invalid && !projectName.pristine}" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="projectCompany">Company</label>
+        <select class="custom-select form-control" id="projectCompany" name="projectCompany" #projectCompany="ngModel" [(ngModel)]="project.projectCompany" [ngClass]="{'invalid': projectCompany.invalid && projectCompany.touched}" required>
+            <option value="null" selected disabled>Select Company</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="projectDescription">Description</label>
+        <textarea class="form-control" id="projectDescription" rows="3" placeholder="Project Description" name="projectDescription" #projectDescription="ngModel" [(ngModel)]="project.projectDescription" [ngClass]="{'invalid': projectDescription.invalid && !projectDescription.pristine}" required></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="projectTags">Tags</label>
+        <span class="clearfix"></span>
+        <tags [ptags]="project.projectTags" (tagChange)="project.projectTags = $event"></tags>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary submit" [disabled]="!updateProjectForm.valid || project.projectTags.length == 0">SAVE Project</button>
+  </form>
+  {{project | json}}
+</div>
+

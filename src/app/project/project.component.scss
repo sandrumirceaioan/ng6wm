@@ -1,0 +1,85 @@
+.form-header {
+    padding: 0px 0 10px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #64698e;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 15px;
+  }
+  
+  .inner-container .submit {
+    border: none;
+    border-radius: 0px;
+    padding: 10px 20px;
+    background: #ffaa00;
+    font-weight: bold;
+  }
+  .inner-container label {
+    color: #64698e;
+    font-weight: bold;
+  }
+
+  .btn-edit {
+    color: #64698e !important;
+    cursor: pointer;
+    background: none;
+    padding: 0px 10px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+  }
+
+  .project-details ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .project-details ul li {
+    color: #585858;
+    padding: 5px 10px;
+  }
+
+  .project-details ul li i {
+      text-decoration: underline;
+  }
+
+  .project-details .heading-title {
+    color: #64698e;
+    font-weight: bold;
+  }
+
+  .btn-upload {
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: #64698e;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: none;
+  }
+
+  .media-left img {
+    width: 110px;
+    height: 110px;
+    border: 5px solid #ffffff;
+    box-sizing: border-box;
+  }
+
+  .upload-select {
+    border:none;
+    box-shadow:none;
+    background: none;
+  }
+
+  .upload-select:focus,  .upload-select:active {
+    border:none;
+    box-shadow:none;
+    background: none;
+  }
+
+  .left {
+    border-right: 1px solid #cccccc;
+  }

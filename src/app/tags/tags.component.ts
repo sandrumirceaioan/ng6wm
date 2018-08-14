@@ -6,13 +6,15 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
+  @Input() ptags: string[];
   @Output() tagChange = new EventEmitter();
-  tags: string[] = [];
+  tags: string[];
   tag: string = '';
 
   constructor() { }
 
   ngOnInit() {
+    this.tags = this.ptags || [];
   }
 
   pushTag(tag) {

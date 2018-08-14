@@ -81,21 +81,6 @@ nav a:hover {
   border-left:1px solid #cccccc;
 }
 
-
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #b8b8b8;
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #b8b8b8;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #b8b8b8;
-}
-
 .inner-container input, .inner-container textarea, .inner-container select{
   border: 0px solid #ffffff;
   border-radius: 0px;

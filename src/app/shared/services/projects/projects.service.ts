@@ -45,6 +45,45 @@ export class ProjectsService {
     );
   }
 
+  getAll(): Observable<Project[]> {
+    return this.http.post(this.apiPath + '/all', null, httpOptions).pipe(
+      map((result: Project[]) => {
+          this.projects = result;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  uploadLogo(file, project): Observable<Project> {
+    let formData:FormData = new FormData();
+    formData.append('projectLogo', file, file.name);
+    formData.append('_id', project._id);
+    return this.http.post(this.apiPath + '/upload', formData).pipe(
+      map((result: Project) => {
+        this.project = result;
+        return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+}
+
+updateOne(params): Observable<Project> {
+return this.http.post(this.apiPath + '/update', params, httpOptions).pipe(
+  map((result: Project) => {
+    this.project = result;
+    return result;
+  }),
+  catchError((error: HttpErrorResponse) => {
+    return throwError(error);
+  })
+);
+}
+
   // getAll(): Observable<Project[]>{
   //   return this.http.post(this.apiPath + '/all', {}, httpOptions).map((result: Project[]) => {
   //                   this.projects = result;
