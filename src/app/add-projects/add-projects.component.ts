@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../shared/services/projects/projects.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-projects',
@@ -12,13 +13,16 @@ export class AddProjectsComponent implements OnInit {
   file: File;
   fileList: FileList;
   project = {};
+  tags: string[] = [];
 
   constructor(
     private projectsService: ProjectsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.project['projectTags'] = [];
     this.project['projectCompany'] = null;
   }
 
@@ -27,15 +31,12 @@ export class AddProjectsComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.fileList && this.fileList.length > 0) {
-      this.file = this.fileList[0];
-    }
     this.projectsService.addProject(this.project).subscribe(
       (result) => {
         this.toastr.success('company added');
+        if (result) this.router.navigate(['./projects/id/'+result['_id']]);
       },
       (error) => {
-        console.log('err: ', error);
         this.toastr.error(error.error.message);
       }
     );

@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AddProjectsComponent } from '../add-projects/add-projects.component';
 import { CompaniesModule } from '../companies/companies.module';
 import { ListsFilterModule } from '../shared/modules/search.module';
-
+import { TagsComponent } from '../tags/tags.component';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { ListsFilterModule } from '../shared/modules/search.module';
     CompaniesModule,
     ListsFilterModule
   ],
-  declarations: [ProjectsComponent, AddProjectsComponent],
+  declarations: [ProjectsComponent, AddProjectsComponent, TagsComponent],
   providers: [ProjectsService]
 })
 export class ProjectsModule { }

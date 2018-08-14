@@ -10,7 +10,7 @@ const routes : Routes = [
         data: { title: 'Projects', access: ['admin'] },
         children: [
             { path: 'add', component: AddProjectsComponent },
-            { path: 'id/:id', loadChildren: '../company/company.module#CompanyModule' }
+            { path: 'id/:id', loadChildren: '../project/project.module#ProjectModule' }
           ],
         pathMatch: 'prefix'
     }

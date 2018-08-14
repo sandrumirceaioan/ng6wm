@@ -24,11 +24,23 @@ export class ProjectsService {
   addProject(project): Observable<Project>{
     return this.http.post(this.apiPath + '/add', project, httpOptions).pipe(
       map((result: Project) => {
-        this.projects.unshift(result);
+        this.projects.push(result);
         return result;
      }),
       catchError((error:HttpErrorResponse) => {
         return throwError(error)
+      })
+    );
+  }
+
+  getOneById(params): Observable<Project> {
+    return this.http.post(this.apiPath + '/oneById', params, httpOptions).pipe(
+      map((result: Project) => {
+          this.project = result;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
       })
     );
   }
