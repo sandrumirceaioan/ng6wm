@@ -106,3 +106,33 @@ nav a:hover {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.search {
+  padding: 5px 10px;
+  width: 100%;
+  border: 5px solid #64698e;
+  margin-bottom: 15px;
+}
+
+.list-header {
+  color: #808080;
+  background: #eaeaea;
+  padding: 5px 10px;
+}
+
+.list-header .count {
+  display: block;
+  font-size:14px;
+}
+
+.load-more {
+  display: block;
+  border: none;
+  background: #ffaa00;
+  color: #ffffff;
+  width: 100%;
+  font-weight: bold;
+  padding: 5px 0;
+  cursor: pointer;
+  margin-bottom: 15px;
+}

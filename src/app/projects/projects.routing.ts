@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProjectsComponent } from './projects.component';
 import { AddProjectsComponent } from '../add-projects/add-projects.component';
 import { ProjectsResolve } from './projects.resolve';
+import { CompaniesResolve } from '../companies/companies.resolve';
 
 const routes : Routes = [
     {
@@ -14,7 +15,8 @@ const routes : Routes = [
             { path: ':id', loadChildren: '../project/project.module#ProjectModule' }
         ],
         resolve: {
-            projects: ProjectsResolve
+            projects: ProjectsResolve,
+            companies: CompaniesResolve
         },
         pathMatch: 'prefix'
     }

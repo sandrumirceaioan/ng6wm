@@ -12,9 +12,7 @@
           <label for="projectCompany">Company</label>
           <select class="custom-select form-control" id="projectCompany" name="projectCompany" #projectCompany="ngModel" [(ngModel)]="project.projectCompany" [ngClass]="{'invalid': projectCompany.invalid && projectCompany.touched}" required>
               <option value="null" selected disabled>Select Company</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option *ngFor="let company of companies" [ngValue]="company._id">{{company.companyName}}</option>
             </select>
         </div>
       </div>

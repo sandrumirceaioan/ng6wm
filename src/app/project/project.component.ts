@@ -5,6 +5,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faMinus, faEdit, faChevronLeft, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from '../../../node_modules/ngx-toastr';
 import { ProjectsService } from '../shared/services/projects/projects.service';
+import { Company } from '../company/company.model';
+import { CompaniesService } from '../shared/services/companies/companies.service';
 
 library.add(faPlus, faMinus, faEdit, faChevronLeft, faUpload);
 
@@ -18,15 +20,18 @@ export class ProjectComponent implements OnInit {
   edit: boolean = false;
   file: File;
   fileList: FileList;
+  companies: Company[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectsService: ProjectsService,
+    private companiesService: CompaniesService,
     private toastr: ToastrService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.companies = this.companiesService.companies;
     this.activatedRoute.data.subscribe((result) => {
       this.project = this.projectsService.project;
     });

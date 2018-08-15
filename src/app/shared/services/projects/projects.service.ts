@@ -16,6 +16,8 @@ export class ProjectsService {
   projects: Project[] = [];
   project: Project;
   mappedResults: object = {};
+  skip: number = 0;
+  count: number;
 
   constructor(
     private http: HttpClient
@@ -45,10 +47,15 @@ export class ProjectsService {
     );
   }
 
-  getAll(): Observable<Project[]> {
-    return this.http.post(this.apiPath + '/all', null, httpOptions).pipe(
-      map((result: Project[]) => {
-          this.projects = result;
+  getAll(resolve?): Observable<any> {
+    // on resolve if already loaded, skip query 
+    if (resolve && this.projects.length) return of(this.projects);
+
+    return this.http.post(this.apiPath + '/all', {skip: this.skip}, httpOptions).pipe(
+      map((result: any) => {
+          this.projects = this.projects.concat(result.projects);
+          this.count = result.count;
+          this.skip = this.projects.length;
           return result;
       }),
       catchError((error:HttpErrorResponse) => {

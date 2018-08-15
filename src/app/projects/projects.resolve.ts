@@ -15,8 +15,9 @@ export class ProjectsResolve implements Resolve<any>{
   ){ }
 
   resolve(route: ActivatedRouteSnapshot){ 
-    return this.projectsService.getAll().pipe(
+    return this.projectsService.getAll(true).pipe(
       catchError((error) => {
+        console.log(error);
         this.toastr.error(error.error.message);
         this.router.navigate(['/dashboard']);
         return of(null);

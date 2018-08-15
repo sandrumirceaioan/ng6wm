@@ -34,6 +34,7 @@ export class CompaniesService {
   }
 
   getAll(): Observable<Company[]> {
+    if (this.companies.length) return of(this.companies);
     return this.http.post(this.apiPath + '/all', null, httpOptions).pipe(
       map((result: Company[]) => {
           this.companies = result;

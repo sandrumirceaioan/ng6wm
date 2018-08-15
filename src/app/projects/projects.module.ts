@@ -10,6 +10,7 @@ import { CompaniesModule } from '../companies/companies.module';
 import { ListsFilterModule } from '../shared/modules/search.module';
 import { ProjectsResolve } from './projects.resolve';
 import { TagsModule } from '../tags/tags.module';
+import { CompaniesResolve } from '../companies/companies.resolve';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { TagsModule } from '../tags/tags.module';
     TagsModule
   ],
   declarations: [ProjectsComponent, AddProjectsComponent],
-  providers: [ProjectsService, ProjectsResolve]
+  providers: [ProjectsService, ProjectsResolve, CompaniesResolve]
 })
 export class ProjectsModule { }
