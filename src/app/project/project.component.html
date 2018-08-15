@@ -22,7 +22,8 @@
   </div>
   <div class="col-md-4">
       <p class="heading-title">Tags</p>
-      blabla
+      <div class="tag-box" *ngFor="let tag of project.projectTags">{{tag}}</div>
+      <div class="clearfix"></div>
       <hr>
       <div class="row">
               <div class="col-sm-12">
@@ -32,7 +33,7 @@
       </div>
   </div>
   </div>
-  <form (ngSubmit)="onSubmit()" #updateProjectForm="ngForm" (keydown.enter)="$event.preventDefault()" *ngIf="edit">
+  <form #updateProjectForm="ngForm" *ngIf="edit">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="projectName">Project</label>
@@ -42,7 +43,7 @@
         <label for="projectCompany">Company</label>
         <select class="custom-select form-control" id="projectCompany" name="projectCompany" #projectCompany="ngModel" [(ngModel)]="project.projectCompany" [ngClass]="{'invalid': projectCompany.invalid && projectCompany.touched}" required>
             <option value="null" selected disabled>Select Company</option>
-            <option *ngFor="let company of companies" value="company._id" [ngValue]="project.projectCompany">{{company.companyName}}</option>
+            <option *ngFor="let company of companies" [value]="project.projectCompany == company._id ? project.projectCompany : company._id">{{company.companyName}}</option>
           </select>
       </div>
     </div>
@@ -59,7 +60,7 @@
         <tags [ptags]="project.projectTags" (tagChange)="project.projectTags = $event"></tags>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary submit" [disabled]="!updateProjectForm.valid || project.projectTags.length == 0">SAVE Project</button>
+    <button type="button" (click)="onSubmit()" class="btn btn-primary submit" [disabled]="!updateProjectForm.valid || project.projectTags.length == 0">SAVE Project</button>
   </form>
 </div>
 

@@ -10,7 +10,7 @@
       <li>
           <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search companies...">
       </li>
-      <li>
+      <li *ngIf="companies.length > 0">
           <div class="list-header">
             <span class="count">Loaded <strong>{{companies.length}}</strong> companies</span>
             <div class="clearfix"></div>

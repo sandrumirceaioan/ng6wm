@@ -2,7 +2,7 @@
     <div class="form-header">
       <span>Add New Project</span>
     </div>
-    <form (ngSubmit)="onSubmit()" #projectForm="ngForm" (keydown.enter)="$event.preventDefault()">
+    <form #projectForm="ngForm">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="projectName">Project</label>
@@ -29,7 +29,7 @@
           <tags (tagChange)="project.projectTags = $event"></tags>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!projectForm.valid || project.projectTags.length == 0">SAVE Project</button>
+      <button type="button" (click)="onSubmit()" class="btn btn-primary" [disabled]="!projectForm.valid || project.projectTags.length == 0">SAVE Project</button>
     </form>
   </div>
   

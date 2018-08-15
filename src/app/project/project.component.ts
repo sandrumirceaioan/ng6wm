@@ -34,20 +34,20 @@ export class ProjectComponent implements OnInit {
     this.companies = this.companiesService.companies;
     this.activatedRoute.data.subscribe((result) => {
       this.project = this.projectsService.project;
+      this.project['projectCompany'] = this.project.projectCompany;
     });
   }
 
   onSubmit() {
-    console.log(this.project);
-    // this.projectsService.updateOne(this.project).subscribe(
-    //   (result) => {
-    //     this.toastr.success('company updated');
-    //     this.project = result;
-    //   },
-    //   (error) => {
-    //     this.toastr.error(error.error.message);
-    //   }
-    // )
+    this.projectsService.updateOne(this.project).subscribe(
+      (result) => {
+        this.toastr.success('project updated');
+        this.project = result;
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
+      }
+    )
   }
 
   handleFileInput(event) {

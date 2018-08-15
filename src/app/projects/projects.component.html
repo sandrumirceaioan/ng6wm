@@ -11,7 +11,7 @@
             <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search projects...">
         </li>
         <li *ngIf="projects.length == 0"><a class="add-button" routerlink>No projects yet.</a></li>
-        <li>
+        <li *ngIf="projects.length > 0">
           <div class="list-header">
             <span class="count">Loaded <strong>{{projects.length}}</strong> of <strong>{{count}}</strong> projects</span>
             <div class="clearfix"></div>
