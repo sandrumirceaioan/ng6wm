@@ -1,6 +1,9 @@
-<div class="inner-container">
+<div class="col-md-12 inner-container">
   <div class="form-header">
     <span>Add New Company</span>
+    <button type="button" class="d-block btn-edit float-right" (click)="back()">
+      <span><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
+  </button>
   </div>
   <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
     <div class="form-row">
@@ -42,7 +45,7 @@
         <input type="text" email="true" class="form-control" id="companyEmail" placeholder="Company Email" name="companyEmail" #companyEmail="ngModel" [(ngModel)]="company.companyEmail" [ngClass]="{'invalid': companyEmail.invalid && !companyEmail.pristine}" required>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!companyForm.valid">SAVE COMPANY</button>
+    <button type="submit" class="btn submit" [disabled]="!companyForm.valid">SAVE COMPANY</button>
   </form>
 
 </div>

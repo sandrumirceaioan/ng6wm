@@ -146,3 +146,29 @@ nav a:hover {
   margin-bottom:10px;
   float:left;
 }
+
+.inner-container .submit {
+  border: none;
+  border-radius: 0px;
+  padding: 10px 20px;
+  background: #ffaa00;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.inner-container .submit:hover {
+  background: #ffaa00;
+  color: #ffffff;
+}
+
+.btn-edit {
+  color: #64698e !important;
+  cursor: pointer;
+  background: none;
+  padding: 0px 10px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+}

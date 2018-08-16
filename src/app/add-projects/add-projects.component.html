@@ -1,6 +1,9 @@
 <div class="inner-container">
     <div class="form-header">
       <span>Add New Project</span>
+      <button type="button" class="d-block btn-edit float-right" (click)="back()">
+        <span><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
+    </button>
     </div>
     <form #projectForm="ngForm">
       <div class="form-row">
@@ -29,7 +32,7 @@
           <tags (tagChange)="project.projectTags = $event"></tags>
         </div>
       </div>
-      <button type="button" (click)="onSubmit()" class="btn btn-primary" [disabled]="!projectForm.valid || project.projectTags.length == 0">SAVE Project</button>
+      <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!projectForm.valid || project.projectTags.length == 0">SAVE Project</button>
     </form>
   </div>
   

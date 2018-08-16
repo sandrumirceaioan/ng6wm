@@ -23,7 +23,7 @@ export class ProjectsService {
     private http: HttpClient
   ) { }
 
-  addProject(project): Observable<Project>{
+  addProject(project): Observable<Project> {
     return this.http.post(this.apiPath + '/add', project, httpOptions).pipe(
       map((result: Project) => {
         this.projects.push(result);

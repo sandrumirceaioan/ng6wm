@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faChevronLeft);
 
 @Component({
   selector: 'app-add-companies',
@@ -13,7 +18,8 @@ export class AddCompaniesComponent implements OnInit {
 
   constructor(
     private companiesService: CompaniesService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,5 +36,9 @@ export class AddCompaniesComponent implements OnInit {
         this.toastr.error(error.error.message);
       }
     );
+  }
+
+  back() {
+    this.router.navigate(['/manage/companies']);
   }
 }

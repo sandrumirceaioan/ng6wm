@@ -8,27 +8,9 @@
     margin-bottom: 15px;
   }
   
-  .inner-container .submit {
-    border: none;
-    border-radius: 0px;
-    padding: 10px 20px;
-    background: #ffaa00;
-    font-weight: bold;
-  }
   .inner-container label {
     color: #64698e;
     font-weight: bold;
-  }
-
-  .btn-edit {
-    color: #64698e !important;
-    cursor: pointer;
-    background: none;
-    padding: 0px 10px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    outline: none;
   }
 
   .company-details ul {
@@ -46,7 +28,7 @@
       text-decoration: underline;
   }
 
-  .company-details .heading-title {
+  .company-details .heading-title, .company-projects .heading-title {
     color: #64698e;
     font-weight: bold;
   }
@@ -82,4 +64,9 @@
 
   .left {
     border-right: 1px solid #cccccc;
+  }
+
+  .company-projects {
+    margin-top: 15px;
+    border-top:1px solid #cccccc;
   }

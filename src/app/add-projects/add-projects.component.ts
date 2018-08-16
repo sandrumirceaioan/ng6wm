@@ -4,6 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CompaniesService } from '../shared/services/companies/companies.service';
 import { Company } from '../company/company.model';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faChevronLeft);
 
 @Component({
   selector: 'app-add-projects',
@@ -45,5 +49,9 @@ export class AddProjectsComponent implements OnInit {
         this.toastr.error(error.error.message);
       }
     );
+  }
+
+  back() {
+    this.router.navigate(['/manage/projects']);
   }
 }

@@ -1,4 +1,4 @@
-<div class="inner-container">
+<div class="col-md-12 inner-container">
     <div class="form-header">
         <span>{{company.companyName}}</span>
         <button type="button" class="d-block btn-edit float-right" (click)="edit = !edit">
@@ -8,34 +8,38 @@
         <div class="clearfix"></div>
     </div>
     <div class="row company-details" *ngIf="!edit">
-    <div class="col-md-8 left">
-        <p class="heading-title">Description</p>
-        <div class="media">
-            <div class="media-left">
-                <img *ngIf="company.companyLogo != 'default-image.png'" class="m-2 float-left" [src]="'http://localhost:3000/' + company.companyLogo" alt="">
-                <img *ngIf="company.companyLogo == 'default-image.png'" class="m-2 float-left" [src]="'../assets/default-image.png'" alt="">
-                <div class="media-body" [innerHTML]="company.companyDescription"></div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
+      <div class="col-md-8 left">
+          <p class="heading-title">Description</p>
+          <div class="media">
+              <div class="media-left">
+                  <img *ngIf="company.companyLogo != 'default-image.png'" class="m-2 float-left" [src]="'http://localhost:3000/' + company.companyLogo" alt="">
+                  <img *ngIf="company.companyLogo == 'default-image.png'" class="m-2 float-left" [src]="'../assets/default-image.png'" alt="">
+                  <div class="media-body" [innerHTML]="company.companyDescription"></div>
+              </div>
+          </div>
+          <div class="clearfix"></div>
 
+      </div>
+      <div class="col-md-4">
+          <p class="heading-title">Contact</p>
+          <ul>
+              <li><small>Owner</small> - {{company.companyOwner}}</li>
+              <li><small>Address</small> - {{company.companyAddress}}</li>
+              <li><small>Phone</small> - {{company.companyPhone}}</li>
+              <li><small>Email</small> - {{company.companyEmail}}</li>
+          </ul>
+          <hr>
+          <div class="row">
+                  <div class="col-sm-12">
+                    <input type="file" accept="image/*" (change)="handleFileInput($event)" name="companyLogo" id="companyLogo" class="upload-select">
+                    <button type="button" class="btn-upload" (click)="uploadImage()"><fa-icon [icon]="['fas', 'upload']"></fa-icon> upload logo</button>
+                  </div>
+          </div>
+      </div>
     </div>
-    <div class="col-md-4">
-        <p class="heading-title">Contact</p>
-        <ul>
-            <li><small>Owner</small> - {{company.companyOwner}}</li>
-            <li><small>Address</small> - {{company.companyAddress}}</li>
-            <li><small>Phone</small> - {{company.companyPhone}}</li>
-            <li><small>Email</small> - {{company.companyEmail}}</li>
-        </ul>
-        <hr>
-        <div class="row">
-                <div class="col-sm-12">
-                  <input type="file" accept="image/*" (change)="handleFileInput($event)" name="companyLogo" id="companyLogo" class="upload-select">
-                  <button type="button" class="btn-upload" (click)="uploadImage()"><fa-icon [icon]="['fas', 'upload']"></fa-icon> upload logo</button>
-                </div>
-        </div>
-    </div>
+    <div class="company-projects">
+      <p class="heading-title">Projects</p>
+      
     </div>
     <form (ngSubmit)="onSubmit()" #updateCompanyForm="ngForm" *ngIf="edit">
       <div class="form-row">
@@ -68,6 +72,7 @@
       </div>
       <button type="submit" class="btn btn-primary submit" [disabled]="!updateCompanyForm.valid">SAVE COMPANY</button>
     </form>
+
 </div>
   
   
