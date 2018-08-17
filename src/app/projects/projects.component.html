@@ -13,7 +13,13 @@
         <li *ngIf="projects.length == 0"><a class="add-button" routerlink>No projects yet.</a></li>
         <li *ngIf="projects.length > 0">
           <div class="list-header">
-            <span class="count">Loaded <strong>{{projects.length}}</strong> of <strong>{{count}}</strong> projects</span>
+            <div class="float-left text-left">
+              <span class="count">Loaded <strong>{{projects.length}}</strong> of <strong>{{projectsService.count}}</strong> projects</span>
+            </div>
+            <div class="float-right text-right">
+              <span *ngIf="loading">loading...</span>
+              <span *ngIf="projects.length < projectsService.count && !loading" class="load-more" (click)="loadMore(projects.length)">LOAD MORE</span>
+            </div>
             <div class="clearfix"></div>
           </div>
         </li>
@@ -23,7 +29,6 @@
             <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
           </a>
         </li>
-        <li *ngIf="projects.length < count"><button type="button" class="load-more" (click)="loadMore(projects.length)">LOAD MORE</button></li>
       </ul>
     </div>
   

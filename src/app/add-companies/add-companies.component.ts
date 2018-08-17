@@ -27,7 +27,7 @@ export class AddCompaniesComponent implements OnInit {
    }
 
   onSubmit(){
-    this.companiesService.addCompany(this.company).subscribe(
+    this.companiesService.add(this.company).subscribe(
       (result) => {
         this.toastr.success('Company added!');
       },

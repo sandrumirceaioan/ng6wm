@@ -19,6 +19,7 @@ export class ProjectsComponent implements OnInit {
   projects: Project[];
   companies: Company[];
   count: number;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -36,9 +37,11 @@ export class ProjectsComponent implements OnInit {
     this.searchTerm = e;
   }
 
-  loadMore(skip){
+  loadMore(){
+    this.loading = true;
     this.projectsService.getAll().subscribe(
       (result) => {
+        this.loading = false;
         this.projects = this.projectsService.projects;
         this.count = this.projectsService.count;
       },

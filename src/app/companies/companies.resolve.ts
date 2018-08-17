@@ -15,7 +15,7 @@ export class CompaniesResolve implements Resolve<any>{
   ){ }
 
   resolve(route: ActivatedRouteSnapshot){ 
-    return this.companiesService.getAll().pipe(
+    return this.companiesService.all().pipe(
       catchError((error) => {
         this.toastr.error(error.error.message);
         this.router.navigate(['/dashboard']);

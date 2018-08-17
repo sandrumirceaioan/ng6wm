@@ -20,7 +20,7 @@ export class CompaniesService {
     private http: HttpClient
   ) { }
 
-  addCompany(params): Observable<any> {
+  add(params): Observable<Company> {
     return this.http.post(this.apiPath + '/add', params, httpOptions).pipe(
       map((result: Company) => {
           this.company = result;
@@ -33,9 +33,9 @@ export class CompaniesService {
     );
   }
 
-  getAll(): Observable<Company[]> {
+  all(): Observable<Company[]> {
     if (this.companies.length) return of(this.companies);
-    return this.http.post(this.apiPath + '/all', null, httpOptions).pipe(
+    return this.http.get(this.apiPath + '/all').pipe(
       map((result: Company[]) => {
           this.companies = result;
           return result;
@@ -46,9 +46,9 @@ export class CompaniesService {
     );
   }
 
-  getOneById(params): Observable<Company> {
-    return this.http.post(this.apiPath + '/oneById', params, httpOptions).pipe(
-      map((result: Company) => {
+  oneById(params): Observable<any> {
+    return this.http.get(this.apiPath + '/oneById/' + params.id).pipe(
+      map((result: any) => {
           this.company = result;
           return result;
       }),
@@ -62,7 +62,7 @@ export class CompaniesService {
         let formData:FormData = new FormData();
         formData.append('companyLogo', file, file.name);
         formData.append('_id', company._id);
-        return this.http.post(this.apiPath + '/upload', formData).pipe(
+        return this.http.put(this.apiPath + '/upload', formData).pipe(
           map((result: Company) => {
             this.company = result;
             return result;
@@ -74,7 +74,7 @@ export class CompaniesService {
   }
 
   updateOne(params): Observable<Company> {
-    return this.http.post(this.apiPath + '/update', params, httpOptions).pipe(
+    return this.http.put(this.apiPath + '/update', params, httpOptions).pipe(
       map((result: Company) => {
         this.company = result;
         return result;

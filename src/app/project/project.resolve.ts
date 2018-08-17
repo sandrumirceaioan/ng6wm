@@ -15,7 +15,7 @@ export class ProjectResolve implements Resolve<any>{
       ){ }
 
     resolve(route: ActivatedRouteSnapshot){
-        return this.projectsService.getOneById(route.params).pipe(
+        return this.projectsService.oneById(route.params).pipe(
             catchError((error) => {
                 this.toastr.error(error.error.message);
                 this.router.navigate(['/manage/projects']);

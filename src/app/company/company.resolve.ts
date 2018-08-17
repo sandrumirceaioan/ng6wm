@@ -15,10 +15,9 @@ export class CompanyResolve implements Resolve<any>{
       ){ }
 
     resolve(route: ActivatedRouteSnapshot){
-        return this.companiesService.getOneById(route.params).pipe(
+        return this.companiesService.oneById(route.params).pipe(
             catchError((error) => {
                 this.toastr.error(error.error.message);
-                console.log('here');
                 this.router.navigate(['/manage/companies']);
                 return of(null);
             })

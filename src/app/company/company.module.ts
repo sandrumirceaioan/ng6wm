@@ -5,6 +5,7 @@ import { CompanyResolve } from './company.resolve';
 import { CompanyRoutingModule } from './company.routing';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProjectsResolve } from '../projects/projects.resolve';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule
   ],
   declarations: [CompanyComponent],
-  providers: [CompanyResolve]
+  providers: [CompanyResolve, ProjectsResolve]
 })
 export class CompanyModule { }

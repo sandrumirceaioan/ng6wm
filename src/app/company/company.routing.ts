@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './company.component';
 import { CompanyResolve } from './company.resolve';
+import { ProjectsResolve } from '../projects/projects.resolve';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
     component: CompanyComponent,
     resolve: {
       company: CompanyResolve,
+      projects: ProjectsResolve
     }
   }
 ];

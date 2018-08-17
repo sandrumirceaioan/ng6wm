@@ -39,7 +39,18 @@
     </div>
     <div class="company-projects">
       <p class="heading-title">Projects</p>
-      
+      <div class="row">
+          <div class="col-sm-6" *ngFor="let project of projects">
+            <div class="card">
+              <img class="card-img-top" [src]="'http://localhost:3000/' + project.projectLogo" alt="project.projectLogo">
+              <div class="card-body">
+                <h5 class="card-title">{{project.projectTitle}}</h5>
+                <p class="card-text">{{project.projectDescription}}</p>
+                <a href="" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <form (ngSubmit)="onSubmit()" #updateCompanyForm="ngForm" *ngIf="edit">
       <div class="form-row">

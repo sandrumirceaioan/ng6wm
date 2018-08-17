@@ -40,7 +40,7 @@ export class AddProjectsComponent implements OnInit {
   }
 
   onSubmit(){
-    this.projectsService.addProject(this.project).subscribe(
+    this.projectsService.add(this.project).subscribe(
       (result) => {
         this.toastr.success('company added');
         if (result) this.router.navigate([`/manage/projects/${result['_id']}`]);

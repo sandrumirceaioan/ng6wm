@@ -6,6 +6,7 @@ export class Company {
   companyPhone: number;
   companyEmail: string;
   companyLogo: string;
+  companyProjects?: object;
   created?: Date;
   createdBy?: string;
 }

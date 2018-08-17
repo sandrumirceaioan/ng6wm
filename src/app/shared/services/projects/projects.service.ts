@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { of, throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Project } from '../../../project/project.model';
+import { extend } from 'underscore';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
+let headers = new Headers({'Content-Type': 'application/json' });
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +26,11 @@ export class ProjectsService {
     private http: HttpClient
   ) { }
 
-  addProject(project): Observable<Project> {
+  add(project): Observable<Project> {
     return this.http.post(this.apiPath + '/add', project, httpOptions).pipe(
       map((result: Project) => {
-        this.projects.push(result);
+        this.projects.unshift(result);
+        this.count = this.count + 1;
         return result;
      }),
       catchError((error:HttpErrorResponse) => {
@@ -35,8 +39,8 @@ export class ProjectsService {
     );
   }
 
-  getOneById(params): Observable<Project> {
-    return this.http.post(this.apiPath + '/oneById', params, httpOptions).pipe(
+  oneById(params): Observable<Project> {
+    return this.http.get(this.apiPath + '/oneById/' + params.id).pipe(
       map((result: Project) => {
           this.project = result;
           return result;
@@ -51,11 +55,22 @@ export class ProjectsService {
     // on resolve if already loaded, skip query 
     if (resolve && this.projects.length) return of(this.projects);
 
-    return this.http.post(this.apiPath + '/all', {skip: this.skip}, httpOptions).pipe(
+    let params = new HttpParams().set('skip', this.projects.length.toString());
+    return this.http.get(this.apiPath + '/all', {params: params}).pipe(
       map((result: any) => {
           this.projects = this.projects.concat(result.projects);
           this.count = result.count;
-          this.skip = this.projects.length;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  allById(params): Observable<Project[]> {
+    return this.http.get(this.apiPath + '/allById/' + params.id).pipe(
+      map((result: Project[]) => {
           return result;
       }),
       catchError((error:HttpErrorResponse) => {
@@ -68,7 +83,7 @@ export class ProjectsService {
     let formData:FormData = new FormData();
     formData.append('projectLogo', file, file.name);
     formData.append('_id', project._id);
-    return this.http.post(this.apiPath + '/upload', formData).pipe(
+    return this.http.put(this.apiPath + '/upload', formData).pipe(
       map((result: Project) => {
         this.project = result;
         return result;
@@ -80,7 +95,7 @@ export class ProjectsService {
 }
 
 updateOne(params): Observable<Project> {
-return this.http.post(this.apiPath + '/update', params, httpOptions).pipe(
+return this.http.put(this.apiPath + '/update', params, httpOptions).pipe(
   map((result: Project) => {
     this.project = result;
     return result;
