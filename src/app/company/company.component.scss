@@ -71,3 +71,16 @@
     padding: 15px 0;
     border-top:1px solid #cccccc;
   }
+
+  .custom-card {
+    display: block;
+    border: 1px solid #efefef;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+  .custom-card img {
+    display:block;
+    width: 100%;
+    max-height: 200px;
+  }

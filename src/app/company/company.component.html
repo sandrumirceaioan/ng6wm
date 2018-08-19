@@ -40,13 +40,11 @@
     <div class="company-projects">
       <p class="heading-title">Projects</p>
       <div class="row">
-          <div class="col-sm-6" *ngFor="let project of projects">
-            <div class="card">
-              <img class="card-img-top" [src]="'http://localhost:3000/' + project.projectLogo" alt="project.projectLogo">
-              <div class="card-body">
-                <h5 class="card-title">{{project.projectTitle}}</h5>
-                <p class="card-text">{{project.projectDescription}}</p>
-                <a href="" class="btn btn-primary">View</a>
+          <div class="col-lg-2 col-md-4 col-sm-6" *ngFor="let project of projects">
+            <div class="custom-card">
+              <img class="card-img-top" [src]="project.projectLogo != 'default-image.png' ? 'http://localhost:3000/' + project.projectLogo : './assets/default-image.png'" alt="project.projectLogo">
+              <div class="custom-card-body">
+                <a href=""><h5 class="custom-card-title">{{project.projectName}}</h5></a>
               </div>
             </div>
           </div>
