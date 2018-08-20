@@ -20,6 +20,7 @@ export class CompanyComponent implements OnInit {
   file: File;
   fileList: FileList;
   projects: Project[];
+  searchTerm: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -66,6 +67,10 @@ export class CompanyComponent implements OnInit {
     } else {
       this.toastr.error('no image selected');
     }
+  }
+
+  onSearchChange(value){
+    this.searchTerm = value;
   }
 
 }

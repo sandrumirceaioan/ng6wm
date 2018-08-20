@@ -1,16 +1,10 @@
-  .form-header {
-    padding: 0px 0 10px 0;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #64698e;
-    border-bottom: 1px solid #cccccc;
-    margin-bottom: 15px;
-  }
-  
+
   .inner-container label {
     color: #64698e;
     font-weight: bold;
+  }
+  .company-details {
+    margin-bottom: 15px;
   }
 
   .company-details ul {
@@ -67,20 +61,33 @@
   }
 
   .company-projects {
-    margin-top: 15px;
-    padding: 15px 0;
-    border-top:1px solid #cccccc;
+
   }
 
   .custom-card {
     display: block;
-    border: 1px solid #efefef;
-    padding: 5px;
     margin-bottom: 20px;
+    border: 1px solid #cccccc;
 }
 
   .custom-card img {
     display:block;
     width: 100%;
     max-height: 200px;
+    border-radius:0px;
+  }
+
+  .custom-card-body {
+    background: #eaeaea;
+  }
+
+  .custom-card-body a {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    color: #848484;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-top: 1px solid #ffffff;
   }

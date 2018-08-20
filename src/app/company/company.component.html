@@ -37,14 +37,19 @@
           </div>
       </div>
     </div>
-    <div class="company-projects">
-      <p class="heading-title">Projects</p>
+    <div class="form-header" *ngIf="!edit">
+      <span>COMPANY PROJECTS</span>
+      <input type="text" class="search-sub float-right" (input)="onSearchChange($event.target.value)" placeholder="search projects...">
+      <div class="clearfix"></div>
+  </div>
+    <div class="company-projects" *ngIf="!edit">
+      <p *ngIf="!projects.length">No projects for this company.</p>
       <div class="row">
-          <div class="col-lg-2 col-md-4 col-sm-6" *ngFor="let project of projects">
+          <div class="col-lg-2 col-md-4 col-sm-6" *ngFor="let project of projects | listFilter:searchTerm">
             <div class="custom-card">
-              <img class="card-img-top" [src]="project.projectLogo != 'default-image.png' ? 'http://localhost:3000/' + project.projectLogo : './assets/default-image.png'" alt="project.projectLogo">
+              <img class="card-img-top" [src]="project.projectLogo != 'default-image.png' ? 'http://localhost:3000/' + project.projectLogo : '../assets/default-image.png'" alt="project.projectLogo">
               <div class="custom-card-body">
-                <a href=""><h5 class="custom-card-title">{{project.projectName}}</h5></a>
+                <a href="">{{project.projectName}}</a>
               </div>
             </div>
           </div>

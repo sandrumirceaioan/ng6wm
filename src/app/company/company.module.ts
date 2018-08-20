@@ -6,13 +6,15 @@ import { CompanyRoutingModule } from './company.routing';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProjectsResolve } from '../projects/projects.resolve';
+import { ListsFilterModule } from '../shared/modules/search.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CompanyRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ListsFilterModule
   ],
   declarations: [CompanyComponent],
   providers: [CompanyResolve, ProjectsResolve]

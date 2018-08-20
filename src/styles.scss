@@ -77,8 +77,19 @@ nav a:hover {
 } 
 
 .inner-container {
-  padding:15px;
+  padding: 0 15px 15px 15px;
   border-left:1px solid #cccccc;
+}
+
+.form-header {
+  padding: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+  background: #64698e;
 }
 
 .inner-container input, .inner-container textarea, .inner-container select{
@@ -112,6 +123,11 @@ nav a:hover {
   width: 100%;
   border: 5px solid #64698e;
   margin-bottom: 15px;
+}
+
+.search-sub {
+  padding: 3px 10px !important;
+  font-size: 14px;
 }
 
 .list-header {
@@ -163,7 +179,7 @@ nav a:hover {
 }
 
 .btn-edit {
-  color: #64698e !important;
+  color: #ffffff !important;
   cursor: pointer;
   background: none;
   padding: 0px 10px;
