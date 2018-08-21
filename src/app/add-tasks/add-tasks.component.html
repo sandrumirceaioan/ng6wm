@@ -1,3 +1,37 @@
-<p>
-  add-tasks works!
-</p>
+<div class="inner-container">
+  <div class="form-header">
+    <span>Add New Task</span>
+    <button type="button" class="d-block btn-edit float-right" (click)="back()">
+      <span><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
+  </button>
+  </div>
+  <form #projectForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="taskName">Task</label>
+        <input type="text" class="form-control" id="taskName" placeholder="Task Name" name="taskName" #taskName="ngModel" [(ngModel)]="task.taskName" [ngClass]="{'invalid': taskName.invalid && !taskName.pristine}" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="taskProject">Project</label>
+        <select class="custom-select form-control" id="taskProject" name="taskProject" #taskProject="ngModel" [(ngModel)]="task.taskProject" [ngClass]="{'invalid': taskProject.invalid && taskProject.touched}" required>
+            <option value="null" selected disabled>Select Project</option>
+            <option *ngFor="let project of projects" [ngValue]="project._id">{{project.projectName}}</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="taskDescription">Description</label>
+        <textarea class="form-control" id="taskDescription" rows="3" placeholder="Project Description" name="taskDescription" #taskDescription="ngModel" [(ngModel)]="task.taskDescription" [ngClass]="{'invalid': taskDescription.invalid && !taskDescription.pristine}" required></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="projectTags">Tags</label>
+        sds
+      </div>
+    </div>
+    <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!projectForm.valid">ADD TASK</button>
+  </form>
+</div>
+
