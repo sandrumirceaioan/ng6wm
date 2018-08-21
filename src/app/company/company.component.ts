@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from './company.model';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faMinus, faEdit, faChevronLeft, faUpload } from '@fortawesome/free-solid-svg-icons';
@@ -24,6 +24,7 @@ export class CompanyComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private companiesService: CompaniesService,
     private toastr: ToastrService
   ) { }
@@ -71,6 +72,10 @@ export class CompanyComponent implements OnInit {
 
   onSearchChange(value){
     this.searchTerm = value;
+  }
+
+  goTo(id){
+    this.router.navigate(['/manage/projects/' + id]);
   }
 
 }

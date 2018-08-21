@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faChevronRight, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { Company } from '../company/company.model';
@@ -18,8 +17,6 @@ export class CompaniesComponent implements OnInit {
   searchTerm: string;
 
   constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
     private companiesService: CompaniesService
   
   ) { }

@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '', 
     component: CompaniesComponent,
-    data: {title: 'Dashboard', access: ['admin','manager','user']},
+    data: {title: 'Companies', access: ['admin']},
     children: [
       { path: 'add', component: AddCompaniesComponent },
       { path: ':id', loadChildren: '../company/company.module#CompanyModule' }

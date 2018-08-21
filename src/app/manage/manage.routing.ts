@@ -11,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'companies', pathMatch: 'full'},
       { path: 'companies', loadChildren: '../companies/companies.module#CompaniesModule'},
-      { path: 'projects', loadChildren: '../projects/projects.module#ProjectsModule'}
+      { path: 'projects', loadChildren: '../projects/projects.module#ProjectsModule'},
+      { path: 'tasks', loadChildren: '../tasks/tasks.module#TasksModule'}
     ],
     canActivate: [RoleGuard]
   }

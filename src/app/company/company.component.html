@@ -41,7 +41,7 @@
       <span>COMPANY PROJECTS</span>
       <input type="text" class="search-sub float-right" (input)="onSearchChange($event.target.value)" placeholder="search projects...">
       <div class="clearfix"></div>
-  </div>
+    </div>
     <div class="company-projects" *ngIf="!edit">
       <p *ngIf="!projects.length">No projects for this company.</p>
       <div class="row">
@@ -49,7 +49,7 @@
             <div class="custom-card">
               <img class="card-img-top" [src]="project.projectLogo != 'default-image.png' ? 'http://localhost:3000/' + project.projectLogo : '../assets/default-image.png'" alt="project.projectLogo">
               <div class="custom-card-body">
-                <a href="">{{project.projectName}}</a>
+                <a routerLink (click)="goTo(project._id)">{{project.projectName}}</a>
               </div>
             </div>
           </div>
