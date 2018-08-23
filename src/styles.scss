@@ -173,6 +173,17 @@ nav a:hover {
   text-transform: uppercase;
 }
 
+.inner-container .submit span {
+  display: block;
+  padding-right: 10px;
+  border-right: 2px solid #ffffff;
+}
+
+.inner-container .submit .button-check {
+  display: block;
+  padding-left: 10px;
+}
+
 .inner-container .submit:hover {
   background: #ffaa00;
   color: #ffffff;

@@ -6,6 +6,9 @@ import { AddTasksComponent } from '../add-tasks/add-tasks.component';
 import { ListsFilterModule } from '../shared/modules/search.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { ProjectsResolve } from '../projects/projects.resolve';
+import { TasksService } from '../shared/services/tasks/tasks.service';
 
 @NgModule({
   imports: [
@@ -13,8 +16,10 @@ import { FormsModule } from '@angular/forms';
     TasksRoutingModule,
     ListsFilterModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    NgxMyDatePickerModule.forRoot()
   ],
-  declarations: [TasksComponent, AddTasksComponent]
+  declarations: [TasksComponent, AddTasksComponent],
+  providers: [TasksService, ProjectsResolve]
 })
 export class TasksModule { }

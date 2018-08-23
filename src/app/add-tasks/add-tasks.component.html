@@ -5,7 +5,7 @@
       <span><fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> back</span>
   </button>
   </div>
-  <form #projectForm="ngForm">
+  <form #taskForm="ngForm">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="taskName">Task</label>
@@ -22,16 +22,34 @@
     <div class="form-row">
       <div class="form-group col-md-12">
         <label for="taskDescription">Description</label>
-        <textarea class="form-control" id="taskDescription" rows="3" placeholder="Project Description" name="taskDescription" #taskDescription="ngModel" [(ngModel)]="task.taskDescription" [ngClass]="{'invalid': taskDescription.invalid && !taskDescription.pristine}" required></textarea>
+        <textarea class="form-control" id="taskDescription" rows="5" placeholder="Project Description" name="taskDescription" #taskDescription="ngModel" [(ngModel)]="task.taskDescription" [ngClass]="{'invalid': taskDescription.invalid && !taskDescription.pristine}" required></textarea>
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
-        <label for="projectTags">Tags</label>
-        sds
+      <div class="form-group col-md-6">
+        <label for="taskDifficulty">Difficulty</label>
+        <select class="form-control" id="taskDifficulty" name="taskDifficulty" #taskDifficulty="ngModel" [(ngModel)]="task.taskDifficulty" [ngClass]="{'invalid': taskDifficulty.invalid && taskDifficulty.touched}" required>
+          <option value="null" selected disabled>Select Difficulty</option>
+          <option value="5">Easy</option>
+          <option value="10">Normal</option>
+          <option value="25">Hard</option>
+          <option value="50">Insane</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="taskDeadline">Deadline</label>
+        <input class="form-control" id="taskDeadline" placeholder="Task Deadline" ngx-mydatepicker name="taskDeadline" #taskDeadline="ngModel" #td="ngx-mydatepicker" [(ngModel)]="task.taskDeadline" [options]="myOptions" (click)="td.toggleCalendar()" [ngClass]="{'invalid': taskDeadline.invalid && !taskDeadline.pristine}" required/>
       </div>
     </div>
-    <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!projectForm.valid">ADD TASK</button>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!taskForm.valid">
+            <span>ADD TASK</span>
+            <input class="button-check" type="checkbox" id="taskDraft" name="taskDraft" #taskDraft="ngModel" [(ngModel)]="task.taskDraft">Draft
+          </button>
+          
+        </div>
+    </div>
   </form>
 </div>
 
