@@ -17,6 +17,8 @@ export class TasksService {
     apiPath: string = '/api/tasks';
     tasks: Task[] = [];
     task: Task;
+    skip: number = 0;
+    count: number;
 
   constructor(
     private http: HttpClient
@@ -34,27 +36,28 @@ export class TasksService {
     );
   }
 
+  getAllPaginated(resolve?): Observable<Task[]> {
+    // on resolve if already loaded, skip query 
+    if (resolve && this.tasks.length) return of(this.tasks);
+
+    let params = new HttpParams().set('skip', this.tasks.length.toString());
+    return this.http.get(this.apiPath + '/allPaginated', {params: params}).pipe(
+      map((result: any) => {
+          this.tasks = result.tasks;
+          this.count = result.count;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  
 //   oneById(params): Observable<Project> {
 //     return this.http.get(this.apiPath + '/oneById/' + params.id).pipe(
 //       map((result: Project) => {
 //           this.project = result;
-//           return result;
-//       }),
-//       catchError((error:HttpErrorResponse) => {
-//         return throwError(error);
-//       })
-//     );
-//   }
-
-//   getAll(resolve?): Observable<any> {
-//     // on resolve if already loaded, skip query 
-//     if (resolve && this.projects.length) return of(this.projects);
-
-//     let params = new HttpParams().set('skip', this.projects.length.toString());
-//     return this.http.get(this.apiPath + '/all', {params: params}).pipe(
-//       map((result: any) => {
-//           this.projects = this.projects.concat(result.projects);
-//           this.count = result.count;
 //           return result;
 //       }),
 //       catchError((error:HttpErrorResponse) => {

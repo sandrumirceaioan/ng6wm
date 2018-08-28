@@ -40,10 +40,10 @@
         <input type="text" class="form-control" id="projectName" placeholder="Project Name" name="projectName" #projectName="ngModel" [(ngModel)]="project.projectName" [ngClass]="{'invalid': projectName.invalid && !projectName.pristine}" required>
       </div>
       <div class="form-group col-md-6">
-        <label for="projectCompany">Company</label>
-        <select class="custom-select form-control" id="projectCompany" name="projectCompany" #projectCompany="ngModel" [(ngModel)]="project.projectCompany" [ngClass]="{'invalid': projectCompany.invalid && projectCompany.touched}" required>
+        <label for="projectCompanyId">Company</label>
+        <select class="custom-select form-control" id="projectCompanyId" name="projectCompanyId" #projectCompanyId="ngModel" [(ngModel)]="project.projectCompanyId" [ngClass]="{'invalid': projectCompanyId.invalid && projectCompanyId.touched}" required>
             <option value="null" selected disabled>Select Company</option>
-            <option *ngFor="let company of companies" [value]="project.projectCompany == company._id ? project.projectCompany : company._id">{{company.companyName}}</option>
+            <option *ngFor="let company of companies" [value]="project.projectCompanyId == company._id ? project.projectCompanyId : company._id">{{company.companyName}}</option>
           </select>
       </div>
     </div>

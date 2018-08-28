@@ -12,8 +12,8 @@
         <input type="text" class="form-control" id="taskName" placeholder="Task Name" name="taskName" #taskName="ngModel" [(ngModel)]="task.taskName" [ngClass]="{'invalid': taskName.invalid && !taskName.pristine}" required>
       </div>
       <div class="form-group col-md-6">
-        <label for="taskProject">Project</label>
-        <select class="custom-select form-control" id="taskProject" name="taskProject" #taskProject="ngModel" [(ngModel)]="task.taskProject" [ngClass]="{'invalid': taskProject.invalid && taskProject.touched}" required>
+        <label for="taskProjectId">Project</label>
+        <select class="custom-select form-control" id="taskProjectId" name="taskProjectId" #taskProjectId="ngModel" [(ngModel)]="task.taskProjectId" [ngClass]="{'invalid': taskProjectId.invalid && taskProjectId.touched}" required>
             <option value="null" selected disabled>Select Project</option>
             <option *ngFor="let project of projects" [ngValue]="project._id">{{project.projectName}}</option>
           </select>
@@ -43,11 +43,7 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-          <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!taskForm.valid">
-            <span>ADD TASK</span>
-            <input class="button-check" type="checkbox" id="taskDraft" name="taskDraft" #taskDraft="ngModel" [(ngModel)]="task.taskDraft">Draft
-          </button>
-          
+          <button type="button" (click)="onSubmit()" class="btn submit" [disabled]="!taskForm.valid">ADD TASK</button>
         </div>
     </div>
   </form>

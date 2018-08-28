@@ -3,6 +3,7 @@ export class Project {
     projectDescription: string;
     projectTags: object;
     projectCompany: string;
+    projectCompanyId: string;
     projectLogo: string;
     created?: Date;
     createdBy?: string;

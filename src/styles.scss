@@ -175,13 +175,16 @@ nav a:hover {
 
 .inner-container .submit span {
   display: block;
-  padding-right: 10px;
-  border-right: 2px solid #ffffff;
+  float: left;
 }
 
-.inner-container .submit .button-check {
+.inner-container .submit input {
   display: block;
-  padding-left: 10px;
+  height: 30px;
+  width: 30px;
+  margin: -3px -12px -5px 25px !important;
+  background: none;
+  float: right;
 }
 
 .inner-container .submit:hover {

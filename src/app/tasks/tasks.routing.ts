@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TasksComponent } from './tasks.component';
 import { AddTasksComponent } from '../add-tasks/add-tasks.component';
 import { ProjectsResolve } from '../projects/projects.resolve';
+import { TasksListComponent } from '../tasks-list/tasks-list.component';
+import { TasksResolve } from './tasks.resolve';
 
 const routes: Routes = [
     {
@@ -10,6 +12,10 @@ const routes: Routes = [
         component: TasksComponent,
         data: {title: 'Tasks', access: ['admin']},
         children: [
+          {
+            path: '',
+            component: TasksListComponent
+          },
           { 
             path: 'add',
             component: AddTasksComponent,
@@ -19,7 +25,10 @@ const routes: Routes = [
          },
           { path: ':id', loadChildren: '../task/task.module#TaskModule' }
         ],
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
+        resolve: {
+          tasks: TasksResolve
+        }
       }
 ];
 

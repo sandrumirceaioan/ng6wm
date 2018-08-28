@@ -32,7 +32,7 @@ export class AddProjectsComponent implements OnInit {
   ngOnInit() {
     this.companies = this.companiesService.companies;
     this.project['projectTags'] = [];
-    this.project['projectCompany'] = null;
+    this.project['projectCompanyId'] = null;
   }
 
   handleFileInput(event) {

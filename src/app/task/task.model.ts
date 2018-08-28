@@ -8,7 +8,6 @@ export class Task {
     taskStatus: string;
     taskDifficulty: string;
     taskDeadline: Date;
-    taskDraft: boolean;
     created?: Date;
     createdBy?: string;
     modified?: Date;

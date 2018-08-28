@@ -1,0 +1,33 @@
+<div class="inner-container">
+  <div class="form-header">
+    <span>Tasks List</span>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-borderless wm-table">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Project</th>
+            <th>Company</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Created on</th>
+            <th>Created by</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+              <td>{{task.taskName}}</td>
+              <td>{{task.taskProject}}</td>
+              <td>{{task.taskCompany}}</td>
+              <td>{{task.taskStatus}}</td>
+              <td>{{task.taskDeadline}}</td>
+              <td>{{task.created}}</td>
+              <td>{{task.createdBy}}</td>
+              <td><a type="button">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

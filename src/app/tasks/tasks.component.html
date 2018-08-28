@@ -10,19 +10,6 @@
       <li>
           <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search tasks...">
       </li>
-      <!-- <li *ngIf="companies.length > 0">
-          <div class="list-header">
-            <span class="count">Loaded <strong>{{companies.length}}</strong> companies</span>
-            <div class="clearfix"></div>
-          </div>
-        </li>
-      <li *ngIf="companies.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
-      <li *ngFor="let company of companies | listFilter:searchTerm">
-        <a [routerLink]="['./', company._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
-          {{company.companyName}}
-          <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
-        </a>
-      </li> -->
     </ul>
   </div>
 

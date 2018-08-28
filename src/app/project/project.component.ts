@@ -34,7 +34,7 @@ export class ProjectComponent implements OnInit {
     this.companies = this.companiesService.companies;
     this.activatedRoute.data.subscribe((result) => {
       this.project = this.projectsService.project;
-      this.project['projectCompany'] = this.project.projectCompany;
+      this.project['projectCompanyId'] = this.project.projectCompanyId;
     });
   }
 
