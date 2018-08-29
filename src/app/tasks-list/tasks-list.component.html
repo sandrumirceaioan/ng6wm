@@ -5,27 +5,23 @@
   <div class="table-responsive">
     <table class="table table-hover table-borderless wm-table">
         <thead>
-          <tr>
-            <th>Task</th>
-            <th>Project</th>
-            <th>Company</th>
-            <th>Status</th>
-            <th>Deadline</th>
-            <th>Created on</th>
-            <th>Created by</th>
-            <th>Details</th>
+          <tr class="d-flex">
+            <th class="col-3">Task</th>
+            <th class="col-2">Project</th>
+            <th class="col-1">Status</th>
+            <th class="col-2">Deadline</th>
+            <th class="col-2">Created by</th>
+            <th class="col-1">Details</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let task of tasks">
-              <td>{{task.taskName}}</td>
-              <td>{{task.taskProject}}</td>
-              <td>{{task.taskCompany}}</td>
-              <td>{{task.taskStatus}}</td>
-              <td>{{task.taskDeadline}}</td>
-              <td>{{task.created}}</td>
-              <td>{{task.createdBy}}</td>
-              <td><a type="button">View</a></td>
+          <tr *ngFor="let task of tasks" class="d-flex">
+              <td class="col-3">{{task.taskName}}</td>
+              <td class="col-2">{{task.taskProject}}</td>
+              <td class="col-1">{{task.taskStatus}}</td>
+              <td class="col-2">{{task.taskDeadline | date: 'dd.MM.yyyy'}}</td>
+              <td class="col-2">{{task.createdByName}}</td>
+              <td class="col-1"><a type="button">View</a></td>
           </tr>
         </tbody>
       </table>
