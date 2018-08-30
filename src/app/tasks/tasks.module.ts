@@ -11,6 +11,7 @@ import { ProjectsResolve } from '../projects/projects.resolve';
 import { TasksService } from '../shared/services/tasks/tasks.service';
 import { TasksListComponent } from '../tasks-list/tasks-list.component';
 import { TasksResolve } from './tasks.resolve';
+import { UsersResolve } from '../users/users.resolve';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { TasksResolve } from './tasks.resolve';
     NgxMyDatePickerModule.forRoot()
   ],
   declarations: [TasksComponent, AddTasksComponent, TasksListComponent],
-  providers: [TasksService, ProjectsResolve, TasksResolve]
+  providers: [TasksService, ProjectsResolve, TasksResolve, UsersResolve]
 })
 export class TasksModule { }

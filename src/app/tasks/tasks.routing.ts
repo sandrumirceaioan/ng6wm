@@ -5,6 +5,7 @@ import { AddTasksComponent } from '../add-tasks/add-tasks.component';
 import { ProjectsResolve } from '../projects/projects.resolve';
 import { TasksListComponent } from '../tasks-list/tasks-list.component';
 import { TasksResolve } from './tasks.resolve';
+import { UsersResolve } from '../users/users.resolve';
 
 const routes: Routes = [
     {
@@ -20,7 +21,8 @@ const routes: Routes = [
             path: 'add',
             component: AddTasksComponent,
             resolve: {
-              projects: ProjectsResolve
+              projects: ProjectsResolve,
+              users: UsersResolve
             }
          },
           { path: ':id', loadChildren: '../task/task.module#TaskModule' }

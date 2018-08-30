@@ -47,5 +47,18 @@ loginUser(params): Observable<User>{
   );
 }
 
+all(): Observable<User[]> {
+  if (this.users.length) return of(this.users);
+  return this.http.get(this.apiPath + '/all').pipe(
+    map((result: User[]) => {
+        this.users = result;
+        return result;
+    }),
+    catchError((error:HttpErrorResponse) => {
+      return throwError(error);
+    })
+  );
+}
+
 }
 

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { INgxMyDpOptions } from 'ngx-mydatepicker';
 import { TasksService } from '../shared/services/tasks/tasks.service';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../users/user.model';
+import { UsersService } from '../shared/services/users/users.service';
 
 library.add(faChevronLeft);
 
@@ -18,11 +20,13 @@ library.add(faChevronLeft);
 export class AddTasksComponent implements OnInit {
   task = {};
   projects: Project[];
+  users: User[];
   myOptions: INgxMyDpOptions;
 
   constructor(
     private projectsService: ProjectsService,
     private tasksService: TasksService,
+    private usersService: UsersService,
     private router: Router,
     private toastr: ToastrService
   ) { }
@@ -37,6 +41,7 @@ export class AddTasksComponent implements OnInit {
     };
 
     this.projects = this.projectsService.projects;
+    this.users = this.usersService.users;
     this.task['taskProjectId'] = null;
     this.task['taskDifficulty'] = null;
     this.task['taskDraft'] = false;
