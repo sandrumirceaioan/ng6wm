@@ -6,11 +6,14 @@ export class Task {
     taskCompany: string;
     taskCompanyId: string;
     taskStatus: string;
+    taskAssignedToId: string;
+    taskAssignedToName: string;
     taskDifficulty: string;
     taskDeadline: Date;
-    taskAssignedTo: string;
     created?: Date;
-    createdBy?: string;
     modified?: Date;
-    modifiedBy?: string; 
+    createdById?: string;
+    createdByName?: string;
+    modifiedById?: string;
+    modifiedByName?: string; 
 }

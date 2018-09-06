@@ -8,9 +8,9 @@
           <tr class="d-flex">
             <th class="col-3">Task</th>
             <th class="col-2">Project</th>
-            <th class="col-1">Status</th>
-            <th class="col-2">Deadline</th>
+            <th class="col-2">Status</th>
             <th class="col-2">Created by</th>
+            <th class="col-2">Assigned to</th>
             <th class="col-1">Details</th>
           </tr>
         </thead>
@@ -18,9 +18,9 @@
           <tr *ngFor="let task of tasks" class="d-flex">
               <td class="col-3">{{task.taskName}}</td>
               <td class="col-2">{{task.taskProject}}</td>
-              <td class="col-1">{{task.taskStatus}}</td>
-              <td class="col-2">{{task.taskDeadline | date: 'dd.MM.yyyy'}}</td>
+              <td class="col-2">{{task.taskStatus}}</td>
               <td class="col-2">{{task.createdByName}}</td>
+              <td class="col-2">{{task.taskAssignedTo | userName}}</td>
               <td class="col-1"><a type="button">View</a></td>
           </tr>
         </tbody>

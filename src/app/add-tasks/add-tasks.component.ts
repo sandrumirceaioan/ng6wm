@@ -43,11 +43,14 @@ export class AddTasksComponent implements OnInit {
     this.projects = this.projectsService.projects;
     this.users = this.usersService.users;
     this.task['taskProjectId'] = null;
+    this.task['taskAssignedTo'] = null;
     this.task['taskDifficulty'] = null;
     this.task['taskDraft'] = false;
   }
 
   onSubmit(){
+    this.task.taskAssignedToId = this.task.taskAssignedTo._id;
+    this.task.taskAssignedToName = this.task.taskAssignedTo.username;
     this.tasksService.add(this.task).subscribe(
       (result) => {
         this.toastr.success('task added');

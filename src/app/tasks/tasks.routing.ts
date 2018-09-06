@@ -21,15 +21,15 @@ const routes: Routes = [
             path: 'add',
             component: AddTasksComponent,
             resolve: {
-              projects: ProjectsResolve,
-              users: UsersResolve
+              projects: ProjectsResolve
             }
          },
           { path: ':id', loadChildren: '../task/task.module#TaskModule' }
         ],
         pathMatch: 'prefix',
         resolve: {
-          tasks: TasksResolve
+          tasks: TasksResolve,
+          users: UsersResolve
         }
       }
 ];
