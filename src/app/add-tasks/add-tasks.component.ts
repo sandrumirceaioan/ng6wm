@@ -49,8 +49,6 @@ export class AddTasksComponent implements OnInit {
   }
 
   onSubmit(){
-    this.task.taskAssignedToId = this.task.taskAssignedTo._id;
-    this.task.taskAssignedToName = this.task.taskAssignedTo.username;
     this.tasksService.add(this.task).subscribe(
       (result) => {
         this.toastr.success('task added');

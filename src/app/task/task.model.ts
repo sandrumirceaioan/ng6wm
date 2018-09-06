@@ -6,8 +6,7 @@ export class Task {
     taskCompany: string;
     taskCompanyId: string;
     taskStatus: string;
-    taskAssignedToId: string;
-    taskAssignedToName: string;
+    taskAssignedTo: string;
     taskDifficulty: string;
     taskDeadline: Date;
     created?: Date;

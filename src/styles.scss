@@ -192,6 +192,11 @@ nav a:hover {
   color: #ffffff;
 }
 
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background: #ffaa00 !important;
+}
+
 .btn-edit {
   color: #ffffff !important;
   cursor: pointer;

@@ -12,14 +12,14 @@ import { TasksService } from '../shared/services/tasks/tasks.service';
 import { TasksListComponent } from '../tasks-list/tasks-list.component';
 import { TasksResolve } from './tasks.resolve';
 import { UsersResolve } from '../users/users.resolve';
-import { UserNameModule } from '../shared/modules/username.module';
+import { UserNameFilterModule } from '../shared/modules/username.module';
 
 @NgModule({
   imports: [
     CommonModule,
     TasksRoutingModule,
     ListsFilterModule,
-    UserNameModule,
+    UserNameFilterModule,
     FontAwesomeModule,
     FormsModule,
     NgxMyDatePickerModule.forRoot()
