@@ -26,4 +26,9 @@
         </tbody>
       </table>
     </div>
+    <ul class="pagination float-left">
+      <li class="page-item" [class.disabled]="tasksService.current-1 <= 0"><a class="page-link" (click)="navigate(tasksService.current-1)">Previous</a></li>
+      <li *ngFor="let page of pages" class="page-item" [class.active]="page == tasksService.current" (click)="navigate(page)"><a class="page-link">{{page}}</a></li>
+      <li class="page-item" [class.disabled]="tasksService.current+1 > pages.length"><a class="page-link" (click)="navigate(tasksService.current+1)">Next</a></li>
+    </ul>
 </div>

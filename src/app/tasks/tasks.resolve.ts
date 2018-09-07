@@ -15,8 +15,8 @@ export class TasksResolve implements Resolve<Task[]>{
     private toastr: ToastrService
   ){ }
 
-  resolve(route: ActivatedRouteSnapshot){ 
-    return this.tasksService.getAllPaginated(true).pipe(
+  resolve(route: ActivatedRouteSnapshot){
+    return this.tasksService.getAllPaginated(1).pipe(
       catchError((error) => {
         this.toastr.error(error.error.message);
         this.router.navigate(['/dashboard']);

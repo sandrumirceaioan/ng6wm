@@ -19,6 +19,7 @@ export class TasksService {
     task: Task;
     skip: number = 0;
     count: number;
+    current: number = 1;
 
   constructor(
     private http: HttpClient
@@ -27,7 +28,7 @@ export class TasksService {
   add(task): Observable<Task> {
     return this.http.post(this.apiPath + '/add', task, httpOptions).pipe(
       map((result: Task) => {
-        this.tasks.unshift(result);
+        this.count++;
         return result;
      }),
       catchError((error:HttpErrorResponse) => {
@@ -36,11 +37,9 @@ export class TasksService {
     );
   }
 
-  getAllPaginated(resolve?): Observable<Task[]> {
-    // on resolve if already loaded, skip query 
-    if (resolve && this.tasks.length) return of(this.tasks);
-
-    let params = new HttpParams().set('skip', this.tasks.length.toString());
+  getAllPaginated(page): Observable<Task[]> {
+    let skip = (page - 1) * 10;
+    let params = new HttpParams().set('skip', skip.toString());
     return this.http.get(this.apiPath + '/allPaginated', {params: params}).pipe(
       map((result: any) => {
           this.tasks = result.tasks;

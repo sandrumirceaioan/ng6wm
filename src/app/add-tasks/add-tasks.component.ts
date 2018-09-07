@@ -29,7 +29,8 @@ export class AddTasksComponent implements OnInit {
     private usersService: UsersService,
     private router: Router,
     private toastr: ToastrService
-  ) { }
+  ) {
+   }
   
 
   ngOnInit() {
