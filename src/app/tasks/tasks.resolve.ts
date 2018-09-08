@@ -16,7 +16,8 @@ export class TasksResolve implements Resolve<Task[]>{
   ){ }
 
   resolve(route: ActivatedRouteSnapshot){
-    return this.tasksService.getAllPaginated(1).pipe(
+    this.tasksService.filters.page = 1;
+    return this.tasksService.getAllPaginated().pipe(
       catchError((error) => {
         this.toastr.error(error.error.message);
         this.router.navigate(['/dashboard']);

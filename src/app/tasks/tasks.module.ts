@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { ProjectsResolve } from '../projects/projects.resolve';
 import { TasksService } from '../shared/services/tasks/tasks.service';
-import { TasksListComponent } from '../tasks-list/tasks-list.component';
 import { TasksResolve } from './tasks.resolve';
 import { UsersResolve } from '../users/users.resolve';
 import { UserNameFilterModule } from '../shared/modules/username.module';
@@ -24,7 +23,7 @@ import { UserNameFilterModule } from '../shared/modules/username.module';
     FormsModule,
     NgxMyDatePickerModule.forRoot()
   ],
-  declarations: [TasksComponent, AddTasksComponent, TasksListComponent],
+  declarations: [TasksComponent, AddTasksComponent],
   providers: [TasksService, ProjectsResolve, TasksResolve, UsersResolve]
 })
 export class TasksModule { }

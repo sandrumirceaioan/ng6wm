@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { of, throwError, Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, debounceTime } from 'rxjs/operators';
 import { Task } from '../../../task/task.model';
 
 const httpOptions = {
@@ -19,7 +19,7 @@ export class TasksService {
     task: Task;
     skip: number = 0;
     count: number;
-    current: number = 1;
+    filters: any = {};
 
   constructor(
     private http: HttpClient
@@ -37,14 +37,16 @@ export class TasksService {
     );
   }
 
-  getAllPaginated(page): Observable<Task[]> {
-    let skip = (page - 1) * 10;
-    let params = new HttpParams().set('skip', skip.toString());
+  getAllPaginated(): Observable<Task[]> {
+    let params = new HttpParams()
+    .set('page', this.filters.page)
+    .set('search', this.filters.search)
+    .set('user', this.filters.user);
     return this.http.get(this.apiPath + '/allPaginated', {params: params}).pipe(
       map((result: any) => {
           this.tasks = result.tasks;
           this.count = result.count;
-          return result;
+          return result.tasks;
       }),
       catchError((error:HttpErrorResponse) => {
         return throwError(error);
