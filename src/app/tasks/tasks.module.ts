@@ -24,6 +24,6 @@ import { UserNameFilterModule } from '../shared/modules/username.module';
     NgxMyDatePickerModule.forRoot()
   ],
   declarations: [TasksComponent, AddTasksComponent],
-  providers: [TasksService, ProjectsResolve, TasksResolve, UsersResolve]
+  providers: [TasksService,  ProjectsResolve, TasksResolve, UsersResolve]
 })
 export class TasksModule { }

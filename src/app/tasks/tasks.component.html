@@ -7,14 +7,49 @@
           <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
         </a>
       </li>
-      <li>
-        <input type="text" class="search" (input)="onSearchChange($event.target.value)" placeholder="search tasks...">
+      <li class="filters">
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="filter-control" (input)="onSearchChange($event.target.value)" placeholder="search tasks...">
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-filter" (click)="toggleFilters()">
+              Show more filters
+            </button>
+          </div>
+        </div>
       </li>
-      <li>
-        <select class="filter-control" (change)="onSelectUser($event.target.value)">
-          <option value="undefined" selected>Select User</option>
-          <option *ngFor="let user of users" [value]="user._id">{{user.userName}}</option>
-        </select>     
+      <li class="filters" *ngIf="filters">
+        <div class="row">
+          <div class="col-md-6">
+            <select class="filter-control" (change)="onSelectUser($event.target.value)">
+              <option value="undefined" selected>Select User</option>
+              <option *ngFor="let user of users" [value]="user._id">{{user.userName}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select class="filter-control" (change)="onSelectUser($event.target.value)">
+              <option value="undefined" selected>Select User</option>
+              <option *ngFor="let user of users" [value]="user._id">{{user.userName}}</option>
+            </select>
+          </div>
+        </div>
+      </li>
+      <li class="filters" *ngIf="filters">
+        <div class="row">
+          <div class="col-md-6">
+            <select class="filter-control" (change)="onSelectUser($event.target.value)">
+              <option value="undefined" selected>Select Company</option>
+              <option *ngFor="let company of companies" [value]="company._id">{{company.companyName}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select class="filter-control" (change)="onSelectUser($event.target.value)">
+              <option value="undefined" selected>Select Project</option>
+              <option *ngFor="let project of projects" [value]="project._id">{{project.projectName}}</option>
+            </select>
+          </div>
+        </div>
       </li>
       <li *ngIf="tasks.length > 0">
         <div class="list-header">
@@ -22,24 +57,24 @@
           <div class="clearfix"></div>
         </div>
       </li>
-    <li *ngIf="tasks.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
-    <li *ngFor="let task of tasks">
-      <a [routerLink]="['./', task._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
-        {{task.taskName}}
-        <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
-      </a>
-    </li>
-    <li *ngIf="tasks.length > 0" class="list-nav">
-      <ul class="pagination float-left">
-            <li class="page-item" [class.disabled]="current-1 <= 0">
-              <a class="page-link" (click)="navigate(current-1)">Previous</a>
-            </li>
-            <li *ngFor="let page of pages" class="page-item" [class.active]="page == current" (click)="navigate(page)">
-              <a class="page-link">{{page}}</a>
-            </li>
-            <li class="page-item" [class.disabled]="current+1 > pages.length">
-              <a class="page-link" (click)="navigate(current+1)">Next</a>
-            </li>
+      <li *ngIf="tasks.length == 0"><a class="add-button" routerlink>No companies yet.</a></li>
+      <li *ngFor="let task of tasks">
+        <a [routerLink]="['./', task._id]" [routerLinkActive]="'active'" #rla="routerLinkActive">
+          {{task.taskName}}
+          <fa-icon *ngIf="rla.isActive" class="active-arr" [icon]="['fas', 'chevron-right']" size="sm"></fa-icon>
+        </a>
+      </li>
+      <li *ngIf="tasks.length > 0" class="list-nav">
+        <ul class="pagination float-left">
+          <li class="page-item" [class.disabled]="current-1 <= 0">
+            <a class="page-link" (click)="navigate(current-1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pages" class="page-item" [class.active]="page == current" (click)="navigate(page)">
+            <a class="page-link">{{page}}</a>
+          </li>
+          <li class="page-item" [class.disabled]="current+1 > pages.length">
+            <a class="page-link" (click)="navigate(current+1)">Next</a>
+          </li>
         </ul>
         <div class="clearfix"></div>
       </li>

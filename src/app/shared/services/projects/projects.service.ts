@@ -16,6 +16,7 @@ let headers = new Headers({'Content-Type': 'application/json' });
 export class ProjectsService {
   apiPath: string = '/api/projects';
   projects: Project[] = [];
+  allProjects: Project[] = [];
   project: Project;
   mappedResults: object = {};
   skip: number = 0;
@@ -50,12 +51,25 @@ export class ProjectsService {
     );
   }
 
+  all(): Observable<Project[]> {
+    if (this.allProjects.length) return of(this.allProjects);
+    return this.http.get(this.apiPath + '/all').pipe(
+      map((result: Project[]) => {
+          this.allProjects = result;
+          return result;
+      }),
+      catchError((error:HttpErrorResponse) => {
+        return throwError(error);
+      })
+    );
+  }
+
   getAll(resolve?): Observable<any> {
     // on resolve if already loaded, skip query 
     if (resolve && this.projects.length) return of(this.projects);
 
     let params = new HttpParams().set('skip', this.projects.length.toString());
-    return this.http.get(this.apiPath + '/all', {params: params}).pipe(
+    return this.http.get(this.apiPath + '/allLimited', {params: params}).pipe(
       map((result: any) => {
           this.projects = this.projects.concat(result.projects);
           this.count = result.count;
