@@ -14,7 +14,7 @@ export class ProjectsResolve implements Resolve<any>{
     private toastr: ToastrService
   ){ }
 
-  resolve(route: ActivatedRouteSnapshot){ 
+  resolve(route: ActivatedRouteSnapshot){
     if (route.params.id) {
       return this.projectsService.allById(route.params).pipe(
         catchError((error) => {
@@ -23,6 +23,15 @@ export class ProjectsResolve implements Resolve<any>{
           return of(null);
         })
       )
+    }
+    if (route.routeConfig.path == 'add') {
+      return this.projectsService.all().pipe(
+        catchError((error) => {
+          this.toastr.error(error.error.message);
+          this.router.navigate(['/dashboard']);
+          return of(null);
+        })
+      )  
     }
     return this.projectsService.getAll(true).pipe(
       catchError((error) => {

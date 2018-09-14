@@ -49,10 +49,14 @@
     padding: 5px 10px;
     background: #ffffff;
     color: #757575;
-    border: 5px solid #64698e;
+    border: none;
     text-decoration: none;
     margin-bottom:15px;
-    height:45px;
+    box-shadow: inset 0 0 5px #c0c0c0;
+}
+
+.filter-control:focus {
+    box-shadow: inset 0 0 5px #c0c0c0 !important;
 }
 
 .list-nav {
@@ -87,6 +91,6 @@
     background: #64698e;
     color: #ffffff;
     border: none;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 0px;
 }

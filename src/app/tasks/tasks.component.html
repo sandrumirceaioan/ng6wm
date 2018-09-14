@@ -14,7 +14,8 @@
           </div>
           <div class="col-md-6">
             <button type="button" class="btn btn-filter" (click)="toggleFilters()">
-              Show more filters
+              <span *ngIf="!filters">show filters</span>
+              <span *ngIf="filters">hide filters</span>
             </button>
           </div>
         </div>
@@ -51,6 +52,19 @@
           </div>
         </div>
       </li>
+      <li class="filters" *ngIf="filters">
+          <div class="row">
+            <div class="col-md-6">
+              <select class="filter-control" (change)="onSelectUser($event.target.value)">
+                <option value="undefined" selected>Select Status</option>
+                <option *ngFor="let company of companies" [value]="company._id">{{company.companyName}}</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+                <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" (dateRangeChanged)="onDateRangeChanged($event)" placeholder="Select Range"></my-date-range-picker>
+            </div>
+          </div>
+        </li>
       <li *ngIf="tasks.length > 0">
         <div class="list-header">
           <span class="count"><strong>{{tasksService.count}}</strong> tasks</span>

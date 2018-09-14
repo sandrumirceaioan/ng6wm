@@ -7,11 +7,13 @@ import { ListsFilterModule } from '../shared/modules/search.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { ProjectsResolve } from '../projects/projects.resolve';
 import { TasksService } from '../shared/services/tasks/tasks.service';
 import { TasksResolve } from './tasks.resolve';
 import { UsersResolve } from '../users/users.resolve';
 import { UserNameFilterModule } from '../shared/modules/username.module';
+import { CompaniesResolve } from '../companies/companies.resolve';
 
 @NgModule({
   imports: [
@@ -21,9 +23,10 @@ import { UserNameFilterModule } from '../shared/modules/username.module';
     UserNameFilterModule,
     FontAwesomeModule,
     FormsModule,
-    NgxMyDatePickerModule.forRoot()
+    NgxMyDatePickerModule.forRoot(),
+    MyDateRangePickerModule
   ],
   declarations: [TasksComponent, AddTasksComponent],
-  providers: [TasksService,  ProjectsResolve, TasksResolve, UsersResolve]
+  providers: [TasksService,  ProjectsResolve, CompaniesResolve, TasksResolve, UsersResolve]
 })
 export class TasksModule { }

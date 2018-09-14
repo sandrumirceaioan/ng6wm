@@ -121,9 +121,13 @@ nav a:hover {
 .search {
   padding: 5px 10px;
   width: 100%;
-  border: 5px solid #64698e;
+  border: none;
+  box-shadow: inset 0 0 5px #c0c0c0;
   margin-bottom: 15px;
-  height:45px;
+}
+
+.search:focus {
+  box-shadow: inset 0 0 5px #c0c0c0 !important;
 }
 
 .search-sub {
@@ -208,3 +212,40 @@ nav a:hover {
   font-weight: bold;
   outline: none;
 }
+
+/* daterangepicker overwrited style */
+.mydrp {
+  border-radius: 0px !important;
+  border: none !important;
+}
+
+.mydrp input {
+  box-shadow: inset 0 0 5px #c0c0c0 !important;
+  border-radius: 0px !important;
+}
+
+.mydrp input:active {
+  box-shadow: inset 0 0 5px #c0c0c0 !important;
+}
+
+.mydrp .btnclear, .mydrp .btnpicker, .mydrp .headerbtn, .mydrp .headerclearbtn, .mydrp .headermonthtxt, .mydrp .headerokbtn, .mydrp .headeryeartxt, .mydrp .yearchangebtn {
+  color: #757575 !important;
+}
+
+.mydrp .selection {
+  padding: 0px 13px !important;
+}
+
+.mydrp .selbtngroup {
+  padding: 5px !important;
+}
+
+.mydrp .btnpickerenabled {
+  border-radius: 0px !important;
+}
+
+.mydrp .btnpickerenabled:hover {
+  background-color: none !important
+}
+
+/* END - daterangepicker overwrited style */

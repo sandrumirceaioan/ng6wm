@@ -5,6 +5,7 @@ import { AddTasksComponent } from '../add-tasks/add-tasks.component';
 import { ProjectsResolve } from '../projects/projects.resolve';
 import { TasksResolve } from './tasks.resolve';
 import { UsersResolve } from '../users/users.resolve';
+import { CompaniesResolve } from '../companies/companies.resolve';
 
 const routes: Routes = [
     {
