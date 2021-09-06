@@ -55,6 +55,7 @@ export class ProjectsService {
     if (this.allProjects.length) return of(this.allProjects);
     return this.http.get(this.apiPath + '/all').pipe(
       map((result: Project[]) => {
+        console.log(result);
           this.allProjects = result;
           return result;
       }),

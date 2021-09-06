@@ -41,7 +41,7 @@ export class AddTasksComponent implements OnInit {
       satHighlight: true
     };
 
-    this.projects = this.projectsService.projects;
+    this.projects = this.projectsService.allProjects;
     this.users = this.usersService.users;
     this.task['taskProjectId'] = null;
     this.task['taskAssignedTo'] = null;
